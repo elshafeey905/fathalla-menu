@@ -7,14 +7,14 @@
 <!-- إضافة خطوط كايرو للنصوص وخط الباركود الحقيقي للمشتريات -->
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Libre+Barcode+39&display=swap" rel="stylesheet">
 <style>
-/* --- الألوان الجديدة المريحة للعين والمهدئة نفسياً --- */
+/* --- الألوان المريحة للعين --- */
 :root {
-    --primary: #d95c50; /* أحمر هادئ (تراكوتا) يفتح الشهية دون إزعاج للعين */
-    --secondary: #d5b895; /* بيج هادئ */
-    --dark: #2c3e50; /* كحلي رمادي داكن هادئ بدلاً من الأسود */
-    --light: #fcfaf5; /* خلفية بيضاء مائلة للكريمة لراحة العين */
-    --accent: #f4a261; /* برتقالي باستيل */
-    --green: #6b8e76; /* أخضر مريمية هادئ */
+    --primary: #d95c50; 
+    --secondary: #d5b895; 
+    --dark: #2c3e50; 
+    --light: #fcfaf5; 
+    --accent: #f4a261; 
+    --green: #6b8e76; 
     --blue: #5d738e; 
     --purple: #865c7a;
     --gold: #d4b86a;
@@ -68,39 +68,6 @@ body {
     50% { transform: scale(1.2) rotate(5deg); opacity: 0.9; }
 }
 
-.logo-text {
-    font-size: 4rem;
-    font-weight: 900;
-    color: #fff;
-    text-shadow: 4px 4px 8px rgba(0,0,0,0.4);
-    position: relative;
-    z-index: 1;
-    letter-spacing: 2px;
-}
-
-.logo-sub {
-    font-size: 1.4rem;
-    color: #f5e6d3;
-    margin-top: 10px;
-    position: relative;
-    z-index: 1;
-    font-weight: 600;
-}
-
-.est-year {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--dark);
-    padding: 8px 30px;
-    border-radius: 30px;
-    font-weight: 800;
-    margin-top: 15px;
-    position: relative;
-    z-index: 1;
-    font-size: 1.1rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
 /* Navigation Tabs */
 .nav-tabs {
     display: flex;
@@ -130,20 +97,6 @@ body {
     box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
-.nav-tab::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255,255,255,0.25);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.5s, height 0.5s;
-}
-
-.nav-tab:hover::after { width: 250px; height: 250px; }
 .nav-tab:hover { transform: translateY(-5px) scale(1.08); box-shadow: 0 12px 35px rgba(0,0,0,0.25); }
 .nav-tab.active { transform: scale(1.1) translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.3); border: 3px solid rgba(255,255,255,0.5); }
 
@@ -179,17 +132,6 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 40px rgba(0,0,0,0.2);
 }
-
-.section-header::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
-    background-size: 60px 60px;
-    animation: bgMove 20s linear infinite;
-}
-
-@keyframes bgMove { 0% { background-position: 0 0; } 100% { background-position: 60px 60px; } }
 
 .section-header h2 { font-size: 2.8rem; font-weight: 900; text-shadow: 3px 3px 6px rgba(0,0,0,0.3); position: relative; z-index: 1; }
 .section-header .subtitle { font-size: 1.1rem; opacity: 0.95; position: relative; z-index: 1; font-weight: 600; }
@@ -244,13 +186,10 @@ body {
     margin-top: 12px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
-
-.badge-new { background: linear-gradient(135deg, #e8f5e9, #c8e6c9); color: #2e7d32; }
 .badge-hot { background: linear-gradient(135deg, #ffebee, #ffcdd2); color: #c62828; }
 .badge-offer { background: linear-gradient(135deg, #fff3e0, #ffe0b2); color: #e65100; }
 
 .price-container { display: flex; align-items: center; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
-.old-price { text-decoration: line-through; color: #999; font-size: 1.1rem; font-weight: 600; }
 
 .drinks-subsection { margin-bottom: 40px; }
 .drinks-subsection h3 { color: var(--dark); font-size: 1.7rem; margin-bottom: 20px; padding-right: 20px; border-right: 5px solid var(--primary); font-weight: 800; }
@@ -279,63 +218,15 @@ body {
     overflow: hidden;
 }
 
-.footer::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary), var(--gold), var(--primary));
-}
-
-.footer h3 { font-size: 2.5rem; margin-bottom: 10px; font-weight: 900; }
-.footer p { font-size: 1.1rem; opacity: 0.9; margin-bottom: 15px; }
-
-.hotline {
-    font-size: 2rem;
-    color: var(--gold);
-    font-weight: 900;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    display: inline-block;
-    padding: 10px 30px;
-    background: rgba(255,255,255,0.1);
-    border-radius: 15px;
-    margin-top: 10px;
-}
-
-.particle {
-    position: fixed;
-    pointer-events: none;
-    opacity: 0.2;
-    animation: float 20s infinite linear;
-    z-index: 0;
-    font-size: 25px;
-}
-
-@keyframes float {
-    0% { transform: translateY(110vh) rotate(0deg) scale(1); }
-    50% { transform: translateY(50vh) rotate(180deg) scale(1.2); }
-    100% { transform: translateY(-100px) rotate(360deg) scale(1); }
-}
-
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: var(--light); }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: #b33930; }
 
 @media (max-width: 768px) {
-    .logo-text { font-size: 2.8rem; }
     .items-grid { grid-template-columns: 1fr; }
     .nav-tab { padding: 12px 20px; font-size: 0.95rem; }
     .section-header h2 { font-size: 2.2rem; }
-    .hotline { font-size: 1.5rem; }
-}
-
-@media print {
-    .nav-tabs { display: none; }
-    .section { display: block !important; page-break-before: always; }
-    .header { page-break-after: avoid; }
-    body { background: #fff; }
-    .item-card { break-inside: avoid; box-shadow: none; border: 1px solid #ddd; }
 }
 
 .loading-screen {
@@ -349,19 +240,13 @@ body {
     transition: opacity 0.5s;
 }
 
-.loading-text {
-    color: #fff;
-    font-size: 2rem;
-    font-weight: 900;
-    animation: loadingPulse 1.5s infinite;
-}
+.loading-text { color: #fff; font-size: 2rem; font-weight: 900; animation: loadingPulse 1.5s infinite; }
 
 @keyframes loadingPulse {
     0%, 100% { opacity: 1; transform: scale(1); }
     50% { opacity: 0.5; transform: scale(1.1); }
 }
 
-/* تنسيق زر العروض ليكون جذاباً وملفتاً */
 .tab-offers {
     background: linear-gradient(45deg, #d95c50, #f4a261) !important; 
     color: #ffffff !important; 
@@ -371,51 +256,19 @@ body {
     transform: scale(1.05); 
 }
 
-/* تنسيقات الوضع الليلي (أزرق داكن مريح) */
-body.dark-mode {
-    background-color: #1a1b20 !important;
-    color: #e4e6eb !important;
-}
+/* تنسيقات الوضع الليلي */
+body.dark-mode { background-color: #1a1b20 !important; color: #e4e6eb !important; }
+body.dark-mode .menu-container, body.dark-mode .header { background-color: #24262d !important; }
+body.dark-mode .nav-tabs { background-color: #2f323a !important; }
+body.dark-mode .item-card { background: #24262d !important; border-color: #2f323a !important; color: #e4e6eb; }
+body.dark-mode .item-name, body.dark-mode .drinks-subsection h3 { color: #f0f0f0 !important; }
 
-body.dark-mode .menu-container,
-body.dark-mode .header {
-    background-color: #24262d !important;
-}
-
-body.dark-mode .nav-tabs {
-    background-color: #2f323a !important;
-}
-
-body.dark-mode .item-card {
-    background: #24262d !important;
-    border-color: #2f323a !important;
-    color: #e4e6eb;
-}
-
-body.dark-mode .item-name, body.dark-mode .drinks-subsection h3 {
-    color: #f0f0f0 !important;
-}
-
-/* --- تنسيقات سلة المشتريات والباركود --- */
-#cart-icon {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-    z-index: 1000;
-    transition: transform 0.2s;
-}
-#cart-icon:hover { transform: scale(1.1); }
+/* --- تنسيقات سلة المشتريات والباركود داخل الهيدر --- */
 #cart-count {
     position: absolute;
     top: -5px;
     right: -5px;
-    background: var(--primary);
+    background: #2e8b57;
     color: white;
     font-size: 13px;
     font-weight: bold;
@@ -455,16 +308,6 @@ body.dark-mode .barcode-font { color: #fff; }
 </head>
 <body>
 
-<!-- أزرار التحكم العلوية (اللغة، الوضع الليلي، سلة المشتريات) -->
-<div style="position: absolute; top: 20px; left: 20px; z-index: 1000; display: flex; gap: 15px;">
-    <button id="theme-toggle" onclick="toggleTheme()" style="background: rgba(255,255,255,0.9); border:none; width: 45px; height: 45px; border-radius: 50%; font-size: 20px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">🌙</button>
-    <button id="lang-toggle" onclick="toggleLanguage()" style="background: rgba(255,255,255,0.9); border:none; height: 45px; padding: 0 15px; border-radius: 25px; font-size: 16px; font-weight: bold; color: var(--dark); cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">🌐 EN</button>
-</div>
-
-<div id="cart-icon" onclick="showSection('cart')">
-    🛒<div id="cart-count">0</div>
-</div>
-
 <div id="toast" class="toast">تمت الإضافة للسلة ✔️</div>
 
 <!-- Loading Screen -->
@@ -473,30 +316,33 @@ body.dark-mode .barcode-font { color: #fff; }
 </div>
 
 <div class="menu-container">
-  <!-- Header -->
+  
+  <!-- Header (الأزرار الجديدة موجودة داخله الآن) -->
   <div class="header" style="position: relative;">
-    <img src="logo.png" alt="العلامة التجارية" style="max-width: 100%; max-height: 130px; object-fit: contain; display: block; margin: 0 auto;">
+    
+    <!-- حاوية أزرار اللغة والوضع الليلي (أعلى اليسار داخل الهيدر) -->
+    <div style="position: absolute; top: 20px; left: 20px; z-index: 1000; display: flex; gap: 10px;">
+        <button id="theme-toggle" onclick="toggleTheme()" style="background: rgba(255,255,255,0.9); border:none; width: 40px; height: 40px; border-radius: 50%; font-size: 18px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center;">🌙</button>
+        <button id="lang-toggle" onclick="toggleLanguage()" style="background: rgba(255,255,255,0.9); border:none; height: 40px; padding: 0 12px; border-radius: 20px; font-size: 14px; font-weight: bold; color: var(--dark); cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); display: flex; justify-content: center; align-items: center;">🌐 EN</button>
+    </div>
+    
+    <!-- أيقونة سلة المشتريات (أعلى اليمين داخل الهيدر) -->
+    <div id="cart-icon" onclick="showSection('cart')" style="position: absolute; top: 20px; right: 20px; background: rgba(255, 255, 255, 0.9); width: 45px; height: 45px; border-radius: 50%; font-size: 22px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; transition: transform 0.2s; display: flex; justify-content: center; align-items: center;">
+        🛒<div id="cart-count">0</div>
+    </div>
+
+    <!-- اللوجو تم إنزاله قليلاً حتى لا يتقاطع مع الأزرار -->
+    <img src="logo.png" alt="العلامة التجارية" style="max-width: 100%; max-height: 130px; object-fit: contain; display: block; margin: 0 auto; margin-top: 35px;">
+    
     <style>
         @keyframes floatAndGlow {
             0%, 100% { transform: translateY(0); text-shadow: 0 0 8px rgba(255,255,255,0.4); }
             50% { transform: translateY(-4px); text-shadow: 0 0 15px rgba(255,255,255,1); }
         }
         .kitchen-title {
-            text-align: center; 
-            color: #ffffff; 
-            font-size: 26px; 
-            font-weight: 900; 
-            margin-top: 15px;
-            letter-spacing: 3px;
-            font-family: Arial, sans-serif;
-            animation: floatAndGlow 3s ease-in-out infinite; 
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        .kitchen-title:hover {
-            transform: scale(1.1);
-            color: #ffcc00;
-            text-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+            text-align: center; color: #ffffff; font-size: 26px; font-weight: 900; 
+            margin-top: 15px; letter-spacing: 3px; font-family: Arial, sans-serif;
+            animation: floatAndGlow 3s ease-in-out infinite; transition: all 0.3s ease;
         }
     </style>
     <div class="kitchen-title">KITCHEN MENU</div>
@@ -519,15 +365,13 @@ body.dark-mode .barcode-font { color: #fff; }
     <button class="nav-tab tab-dessert" onclick="showSection('dessert')">🍰 حلويات</button>
   </div>
 
-  <!-- Cart Section (سلة المشتريات الجديدة) -->
+  <!-- Cart Section (سلة المشتريات) -->
   <div id="cart" class="section">
     <div class="section-header" style="background: var(--dark);">
       <h2>🛒 سلة المشتريات</h2>
       <div class="subtitle">الطلبات المحددة والباركود</div>
     </div>
-    <div id="cart-items" class="items-grid">
-        <!-- سيتم إضافة المنتجات هنا برمجياً -->
-    </div>
+    <div id="cart-items" class="items-grid"></div>
     <div style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(0,0,0,0.05); border-radius: 15px;">
         <h2 style="color: var(--primary);">الإجمالي: <span id="cart-total">0</span> جنيه</h2>
     </div>
@@ -535,7 +379,6 @@ body.dark-mode .barcode-font { color: #fff; }
 
   <!-- Offers Section -->
   <div id="offers" class="section">
-        <!-- بانر عرض البيتزا التفاعلي الناري (ألوان هادئة) -->
         <style>
             @keyframes warmPulse {
                 0% { box-shadow: 0 0 10px rgba(217,92,80,0.4); transform: scale(1); }
@@ -543,30 +386,16 @@ body.dark-mode .barcode-font { color: #fff; }
                 100% { box-shadow: 0 0 10px rgba(217,92,80,0.4); transform: scale(1); }
             }
             .fiery-banner {
-                background: linear-gradient(45deg, #d95c50, #f4a261, #e76f51, #d95c50);
-                background-size: 300% 300%;
-                color: #ffffff;
-                padding: 15px;
-                border-radius: 30px;
-                text-align: center;
-                font-weight: bold;
-                font-size: 19px;
-                margin: 10px auto 25px auto;
-                max-width: 90%;
-                cursor: pointer;
-                border: 2px solid #d4b86a;
-                animation: warmPulse 3s infinite;
-                text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+                background: linear-gradient(45deg, #d95c50, #f4a261, #e76f51, #d95c50); background-size: 300% 300%;
+                color: #ffffff; padding: 15px; border-radius: 30px; text-align: center; font-weight: bold;
+                font-size: 19px; margin: 10px auto 25px auto; max-width: 90%; cursor: pointer;
+                border: 2px solid #d4b86a; animation: warmPulse 3s infinite; text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
             }
         </style>
-
         <div class="fiery-banner" onclick="showSection('pizza')">
             🍕 عرض 1+1 | Large + Medium Free 🍕
-            <div style="font-size: 14px; color: #ffeeaa; margin-top: 5px; font-weight: normal;">
-                👈 اضغط هنا لتصفح واختيار البيتزا 👉
-            </div>
+            <div style="font-size: 14px; color: #ffeeaa; margin-top: 5px; font-weight: normal;">👈 اضغط هنا لتصفح واختيار البيتزا 👉</div>
         </div>        
-        
         <div class="items-grid">
             <div class="item-card"><div class="item-name">كومبو 2 كفته مشوية</div><div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
             <div class="item-card"><div class="item-name">كومبو 1 كفته، 1 صدور</div><div class="item-desc" style="font-size: 13px; color: #888; margin: 5px 0;">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
@@ -888,153 +717,56 @@ body.dark-mode .barcode-font { color: #fff; }
 
 <script>
 // ==========================================================
-// 1. قاعدة بيانات الباركود الحقيقية (تم استخراجها من ملف الإكسيل)
+// 1. قاعدة بيانات الباركود الحقيقية
 // ==========================================================
 const barcodeDB = {
-    "كومبو 2 كفته مشوية": "2041810000420",
-    "كومبو 1 كفته، 1 صدور": "2041820000373",
-    "كومبو 1 كفته، 1 شيش": "2041820000366",
-    "عرض وجبة كفته مشوية": "2307734000008",
-    "عرض وجبة الصدور": "2041210001003",
-    "عرض وجبة شيش طاووق": "2307735000007",
-    "سلطة خضراء": "2307746000003",
-    "سلطة بنجر": "2307743000006",
-    "سلطة كول سلو": "2307749000000",
-    "سلطة تومية": "2307744000005",
-    "سلطة بابا غنوج": "2307742000007",
-    "سلطة حمص": "2307745000004",
-    "سلطة طحينة": "2307748000001",
-    "سلطة تونية": "2307750000006",
-    "سمبوسك جبن": "7751",
-    "سمبوسك لحم": "7752",
-    "باكيت بطاطس": "2307755000001",
-    "بطاطس جبنة": "2307756000000",
-    "ارز بسمتي": "7761",
-    "ممبار": "7758",
-    "كبيبة لحم": "7753",
-    "ورق عنب أرز": "7759",
-    "مشكل مقبلات": "7757",
-    "بيتزا بسطرمة": "2041110000441",
-    "بيتزا مارجريتا": "2041110000342",
-    "بيتزا ببروني": "2041110000540",
-    "بيتزا مشكل جبن": "2041110000328",
-    "بيتزا مشكل لحوم": "2041110000564",
-    "بيتزا سجق": "2041110000427",
-    "بيتزا جمبري": "2041110000588",
-    "بيتزا شاورما فراخ": "2041110000465",
-    "بيتزا سي فود": "2041110000601",
-    "بيتزا دجاج رانش": "2041110000755",
-    "بيتزا دجاج باربيكيو": "2041110000762",
-    "فطيرة بغاشة": "2307888000008",
-    "فطيرة سكر": "2307886000000",
-    "فطيرة نوتيلا": "2307892000001",
-    "فطيرة كاستر": "2307887000009",
-    "فطيرة لوتس": "2302451000003",
-    "فطيرة اوريو": "2302440000007",
-    "فطيرة بسطرمة": "2041120000332",
-    "فطيرة خضروات": "2041120000233",
-    "فطيرة دجاج": "2041120000479",
-    "فطيرة مشكل جبن": "2041120000417",
-    "فطيرة مشكل لحوم": "2041120000394",
-    "فطيرة سجق": "2041120000318",
-    "فطيرة سي فود": "2041120000516",
-    "فطيرة شاورما فراخ": "2041120000356",
-    "فطيرة جمبري": "2041120000455",
-    "كريب كريسبي": "2307902000007",
-    "كريب سجق": "2307897000006",
-    "كريب مشكل لحوم": "2307900000009",
-    "كريب بسطرمة": "2307898000005",
-    "كريب سي فود": "2307906000003",
-    "كريب شاورما فراخ": "2307903000006",
-    "كريب جمبري": "2307904000005",
-    "كريب نوتيلا": "2307907000002",
-    "كريب اوريو": "2300774000007",
-    "كريب لوتس": "2305260000004",
-    "مكرونة الفريدو": "2042220000154",
-    "مكرونة مفروم فرن": "2042220000185",
-    "مكرونة نجرسكو": "2042220000147",
-    "وجبة نص فرخة مشوية": "2307736000006",
-    "وجبة شيش طاووق": "2307735000007",
-    "وجبة فلتو مشوي": "2307733000009",
-    "وجبة كفتة مشوية": "2307734000008",
-    "مشكل: كفتة/شيش/فلتو": "2307737000005",
-    "وجبة صدور مشوية": "2307740000009",
-    "كفتة مشوية": "2307725000000",
-    "فرخة مشوية": "2307729000006",
-    "نصف فرخة مشوية": "2307730000002",
-    "فلتو مشوي": "2307715000003",
-    "شيش طاووق": "2307727000008",
-    "صدور فراخ": "2307713000005",
-    "شاورما فراخ عربي": "2044260000118",
-    "شاورما فراخ سوري (L)": "2044260000064",
-    "شاورما فراخ سوري (M)": "2044260000057",
-    "فتة شاورما فراخ (L)": "2044250000098",
-    "فتة شاورما فراخ (M)": "2044250000081",
-    "عصير موز": "2307946000001",
-    "عصير مواسم": "2308279000003",
-    "عصير مانجو": "2307948000009",
-    "عصير فراولة": "2307949000008",
-    "عصير ليمون": "2307953000001",
-    "عصير برتقال": "2307949000008",
-    "عصير ليمون نعناع": "2307954000000",
-    "بلو كراسو موهيتو": "2307974000004",
-    "كلاسيك موهيتو": "2307972000006",
-    "بلو بيري موهيتو": "2307974000004",
-    "باشون موهيتو": "2307975000003",
-    "خوخ موهيتو": "2307975000003",
-    "فراولة موهيتو": "2307965000006",
-    "مانجو سموزي": "2307964000007",
-    "فراولة سموزي": "2307965000006",
-    "ليمون نعناع سموزي": "2307954000000",
-    "بلو بيري سموزي": "2307968000003",
-    "خوخ سموزي": "2307970000008",
-    "كيوي سموزي": "2044220000394",
-    "ميكس بيري سموزي": "2044220000400",
-    "مانجو كيوي سموزي": "2044220000417",
-    "مانجو خوخ سموزي": "2044220000424",
-    "ميلك شيك فانيليا": "2307955000009",
-    "ميلك شيك مانجو": "2307957000007",
-    "ميلك شيك فراولة": "2307958000006",
-    "ميلك شيك نوتيلا": "2307959000005",
-    "ميلك شيك اوريو": "2307960000001",
-    "ميلك شيك لوتس": "2302455000009",
-    "شاي ساخن": "2307938000002",
-    "شاي فلفر": "2307939000001",
-    "قهوة تركي": "2307941000006",
-    "قهوة تركي دوبل": "2307942000005",
-    "اعشاب": "2307944000003",
-    "قهوة حليب": "2308277000005",
-    "قهوة نوتيلا/بندق": "2304665000004",
-    "هوت شوكليت": "2307932000008",
-    "اسبريسو": "2307911000005",
-    "اسبريسو دبل": "2307912000004",
-    "اسبريسو ميكاتو": "2307914000002",
-    "اسبريسو دبل ميكاتو": "2307914000002",
-    "كابوتشينو": "2308076000008",
-    "لاتيه": "2307918000008",
-    "هوت سيدر": "2307921000002",
-    "نسكافيه": "2301980000003",
-    "امريكان كوفي": "2307923000000",
-    "هوت موكا": "2307919000007",
-    "ايس لاتيه": "2307986000009",
-    "ايس كابيتشينو": "2307984000001",
-    "ايس امريكان كوفي": "2307987000008",
-    "وافلز نوتيلا": "2304665000004",
-    "وافلز كراميل": "2041210000280",
-    "وافلز مكسرات": "2301329000008",
-    "وافلز اوريو": "2041210000280",
-    "وافلز لوتس": "2041210000082",
-    "وافلز سادة": "2301329000008",
-    "لوتس ايس كريم": "000000000000",
-    "كلاسيك ايس كريم": "2307972000006",
-    "فروت ايس كريم": "2307725000000",
-    "اكسترا فليفر": "2307990000002",
-    "اكسترا اسبريسو": "2307991000001",
-    "اكسترا لبن": "2307992000000",
-    "اكسترا نوتيلا": "2307993000009",
-    "اكسترا ايس كريم بولة": "2307991000001",
-    "اكسترا صوص": "2307992000000",
-    "اكسترا فواكه": "2307993000009"
+    "كومبو 2 كفته مشوية": "2041810000420", "كومبو 1 كفته، 1 صدور": "2041820000373", "كومبو 1 كفته، 1 شيش": "2041820000366",
+    "عرض وجبة كفته مشوية": "2307734000008", "عرض وجبة الصدور": "2041210001003", "عرض وجبة شيش طاووق": "2307735000007",
+    "سلطة خضراء": "2307746000003", "سلطة بنجر": "2307743000006", "سلطة كول سلو": "2307749000000",
+    "سلطة تومية": "2307744000005", "سلطة بابا غنوج": "2307742000007", "سلطة حمص": "2307745000004",
+    "سلطة طحينة": "2307748000001", "سلطة تونية": "2307750000006", "سمبوسك جبن": "7751", "سمبوسك لحم": "7752",
+    "باكيت بطاطس": "2307755000001", "بطاطس جبنة": "2307756000000", "ارز بسمتي": "7761", "ممبار": "7758",
+    "كبيبة لحم": "7753", "ورق عنب أرز": "7759", "مشكل مقبلات": "7757", "بيتزا بسطرمة": "2041110000441",
+    "بيتزا مارجريتا": "2041110000342", "بيتزا ببروني": "2041110000540", "بيتزا مشكل جبن": "2041110000328",
+    "بيتزا مشكل لحوم": "2041110000564", "بيتزا سجق": "2041110000427", "بيتزا جمبري": "2041110000588",
+    "بيتزا شاورما فراخ": "2041110000465", "بيتزا سي فود": "2041110000601", "بيتزا دجاج رانش": "2041110000755",
+    "بيتزا دجاج باربيكيو": "2041110000762", "فطيرة بغاشة": "2307888000008", "فطيرة سكر": "2307886000000",
+    "فطيرة نوتيلا": "2307892000001", "فطيرة كاستر": "2307887000009", "فطيرة لوتس": "2302451000003",
+    "فطيرة اوريو": "2302440000007", "فطيرة بسطرمة": "2041120000332", "فطيرة خضروات": "2041120000233",
+    "فطيرة دجاج": "2041120000479", "فطيرة مشكل جبن": "2041120000417", "فطيرة مشكل لحوم": "2041120000394",
+    "فطيرة سجق": "2041120000318", "فطيرة سي فود": "2041120000516", "فطيرة شاورما فراخ": "2041120000356",
+    "فطيرة جمبري": "2041120000455", "كريب كريسبي": "2307902000007", "كريب سجق": "2307897000006",
+    "كريب مشكل لحوم": "2307900000009", "كريب بسطرمة": "2307898000005", "كريب سي فود": "2307906000003",
+    "كريب شاورما فراخ": "2307903000006", "كريب جمبري": "2307904000005", "كريب نوتيلا": "2307907000002",
+    "كريب اوريو": "2300774000007", "كريب لوتس": "2305260000004", "مكرونة الفريدو": "2042220000154",
+    "مكرونة مفروم فرن": "2042220000185", "مكرونة نجرسكو": "2042220000147", "وجبة نص فرخة مشوية": "2307736000006",
+    "وجبة شيش طاووق": "2307735000007", "وجبة فلتو مشوي": "2307733000009", "وجبة كفتة مشوية": "2307734000008",
+    "مشكل: كفتة/شيش/فلتو": "2307737000005", "وجبة صدور مشوية": "2307740000009", "كفتة مشوية": "2307725000000",
+    "فرخة مشوية": "2307729000006", "نصف فرخة مشوية": "2307730000002", "فلتو مشوي": "2307715000003",
+    "شيش طاووق": "2307727000008", "صدور فراخ": "2307713000005", "شاورما فراخ عربي": "2044260000118",
+    "شاورما فراخ سوري (L)": "2044260000064", "شاورما فراخ سوري (M)": "2044260000057", "فتة شاورما فراخ (L)": "2044250000098",
+    "فتة شاورما فراخ (M)": "2044250000081", "عصير موز": "2307946000001", "عصير مواسم": "2308279000003",
+    "عصير مانجو": "2307948000009", "عصير فراولة": "2307949000008", "عصير ليمون": "2307953000001",
+    "عصير برتقال": "2307949000008", "عصير ليمون نعناع": "2307954000000", "بلو كراسو موهيتو": "2307974000004",
+    "كلاسيك موهيتو": "2307972000006", "بلو بيري موهيتو": "2307974000004", "باشون موهيتو": "2307975000003",
+    "خوخ موهيتو": "2307975000003", "فراولة موهيتو": "2307965000006", "مانجو سموزي": "2307964000007",
+    "فراولة سموزي": "2307965000006", "ليمون نعناع سموزي": "2307954000000", "بلو بيري سموزي": "2307968000003",
+    "خوخ سموزي": "2307970000008", "كيوي سموزي": "2044220000394", "ميكس بيري سموزي": "2044220000400",
+    "مانجو كيوي سموزي": "2044220000417", "مانجو خوخ سموزي": "2044220000424", "ميلك شيك فانيليا": "2307955000009",
+    "ميلك شيك مانجو": "2307957000007", "ميلك شيك فراولة": "2307958000006", "ميلك شيك نوتيلا": "2307959000005",
+    "ميلك شيك اوريو": "2307960000001", "ميلك شيك لوتس": "2302455000009", "شاي ساخن": "2307938000002",
+    "شاي فلفر": "2307939000001", "قهوة تركي": "2307941000006", "قهوة تركي دوبل": "2307942000005",
+    "اعشاب": "2307944000003", "قهوة حليب": "2308277000005", "قهوة نوتيلا/بندق": "2304665000004",
+    "هوت شوكليت": "2307932000008", "اسبريسو": "2307911000005", "اسبريسو دبل": "2307912000004",
+    "اسبريسو ميكاتو": "2307914000002", "اسبريسو دبل ميكاتو": "2307914000002", "كابوتشينو": "2308076000008",
+    "لاتيه": "2307918000008", "هوت سيدر": "2307921000002", "نسكافيه": "2301980000003",
+    "امريكان كوفي": "2307923000000", "هوت موكا": "2307919000007", "ايس لاتيه": "2307986000009",
+    "ايس كابيتشينو": "2307984000001", "ايس امريكان كوفي": "2307987000008", "وافلز نوتيلا": "2304665000004",
+    "وافلز كراميل": "2041210000280", "وافلز مكسرات": "2301329000008", "وافلز اوريو": "2041210000280",
+    "وافلز لوتس": "2041210000082", "وافلز سادة": "2301329000008", "لوتس ايس كريم": "000000000000",
+    "كلاسيك ايس كريم": "2307972000006", "فروت ايس كريم": "2307725000000", "اكسترا فليفر": "2307990000002",
+    "اكسترا اسبريسو": "2307991000001", "اكسترا لبن": "2307992000000", "اكسترا نوتيلا": "2307993000009",
+    "اكسترا ايس كريم بولة": "2307991000001", "اكسترا صوص": "2307992000000", "اكسترا فواكه": "2307993000009"
 };
 
 // ==========================================================
@@ -1076,13 +808,90 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- نظام الترجمة الذكي ---
+// --- قاموس الترجمة الشامل ---
 const dictionary = {
     "عروض": "Offers", "سلاطات": "Salads", "مقبلات": "Appetizers", "بيتزا": "Pizza",
     "فطائر": "Pies", "كريب": "Crepes", "مكرونة": "Pasta", "وجبات": "Meals",
     "مشويات": "Grilled", "شاورما": "Shawarma", "مشروبات": "Drinks", "بارستا": "Barista",
     "حلويات": "Desserts", "جنيه": "EGP", "سلة المشتريات": "Shopping Cart",
-    "الإجمالي:": "Total:", "الطلبات المحددة والباركود": "Selected Items & Barcodes"
+    "الإجمالي:": "Total:", "الطلبات المحددة والباركود": "Selected Items & Barcodes",
+    
+    "كومبو 2 كفته مشوية": "Combo 2 Grilled Kofta", "كلوسلو + فرايز": "Coleslaw + Fries",
+    "كومبو 1 كفته، 1 صدور": "Combo 1 Kofta, 1 Breast", "كومبو 1 كفته، 1 شيش": "Combo 1 Kofta, 1 Shish",
+    "عرض وجبة كفته مشوية": "Grilled Kofta Meal Offer", "أرز + مقبلات + مخلل + سلطة + خبز": "Rice + Appetizers + Pickles + Salad + Bread",
+    "عرض وجبة الصدور": "Chicken Breasts Meal Offer", "عرض وجبة شيش طاووق": "Shish Tawook Meal Offer",
+    
+    "سلطة خضراء": "Green Salad", "سلطة بنجر": "Beetroot Salad", "سلطة تونية": "Tuna Salad",
+    "سلطة حمص": "Hummus Salad", "سلطة كول سلو": "Coleslaw Salad", "سلطة طحينة": "Tahini Salad",
+    "سلطة بابا غنوج": "Baba Ghanoush", "سلطة تومية": "Tomia (Garlic Dip)",
+    
+    "سمبوسك جبن": "Cheese Samosa", "سمبوسك لحم": "Meat Samosa", "باكيت بطاطس": "French Fries Packet",
+    "بطاطس جبنة": "Cheese Fries", "ارز بسمتي": "Basmati Rice", "ممبار": "Mombar",
+    "كبيبة لحم": "Meat Kobeba", "ورق عنب أرز": "Stuffed Vine Leaves", "مشكل مقبلات": "Mixed Appetizers",
+    
+    "بيتزا بسطرمة": "Pastrami Pizza", "بيتزا مارجريتا": "Margherita Pizza", "بيتزا ببروني": "Pepperoni Pizza",
+    "بيتزا مشكل جبن": "Mixed Cheese Pizza", "بيتزا مشكل لحوم": "Mixed Meat Pizza", "بيتزا سجق": "Sausage Pizza",
+    "بيتزا جمبري": "Shrimp Pizza", "بيتزا شاورما فراخ": "Chicken Shawarma Pizza", "بيتزا سي فود": "Seafood Pizza",
+    "بيتزا دجاج رانش": "Chicken Ranch Pizza", "بيتزا دجاج باربيكيو": "Chicken BBQ Pizza",
+    
+    "فطيرة بغاشة": "Baghasha Pie", "فطيرة سكر": "Sugar Pie", "فطيرة نوتيلا": "Nutella Pie",
+    "فطيرة كاستر": "Custard Pie", "فطيرة لوتس": "Lotus Pie", "فطيرة اوريو": "Oreo Pie",
+    "فطيرة بسطرمة": "Pastrami Pie", "فطيرة خضروات": "Vegetable Pie", "فطيرة دجاج": "Chicken Pie",
+    "فطيرة مشكل جبن": "Mixed Cheese Pie", "فطيرة مشكل لحوم": "Mixed Meat Pie", "فطيرة سجق": "Sausage Pie",
+    "فطيرة سي فود": "Seafood Pie", "فطيرة شاورما فراخ": "Chicken Shawarma Pie", "فطيرة جمبري": "Shrimp Pie",
+    
+    "كريب كريسبي": "Crispy Crepe", "كريب سجق": "Sausage Crepe", "كريب مشكل لحوم": "Mixed Meat Crepe",
+    "كريب بسطرمة": "Pastrami Crepe", "كريب سي فود": "Seafood Crepe", "كريب شاورما فراخ": "Chicken Shawarma Crepe",
+    "كريب جمبري": "Shrimp Crepe", "كريب نوتيلا": "Nutella Crepe", "كريب اوريو": "Oreo Crepe", "كريب لوتس": "Lotus Crepe",
+    
+    "مكرونة الفريدو": "Alfredo Pasta", "مكرونة مفروم فرن": "Oven Baked Minced Meat Pasta", "مكرونة نجرسكو": "Negresco Pasta",
+    
+    "وجبة نص فرخة مشوية": "Half Grilled Chicken Meal", "وجبة شيش طاووق": "Shish Tawook Meal",
+    "وجبة فلتو مشوي": "Grilled Fillet Meal", "وجبة كفتة مشوية": "Grilled Kofta Meal",
+    "مشكل: كفتة/شيش/فلتو": "Mixed Grill: Kofta/Shish/Fillet", "وجبة صدور مشوية": "Grilled Chicken Breasts Meal",
+    
+    "كفتة مشوية": "Grilled Kofta", "فرخة مشوية": "Grilled Chicken", "نصف فرخة مشوية": "Half Grilled Chicken",
+    "فلتو مشوي": "Grilled Fillet", "شيش طاووق": "Shish Tawook", "صدور فراخ": "Chicken Breasts", "كيلو": "Kilo",
+    
+    "شاورما فراخ عربي": "Arabic Chicken Shawarma", "شاورما فراخ سوري (L)": "Syrian Chicken Shawarma (L)",
+    "شاورما فراخ سوري (M)": "Syrian Chicken Shawarma (M)", "فتة شاورما فراخ (L)": "Chicken Shawarma Fatteh (L)",
+    "فتة شاورما فراخ (M)": "Chicken Shawarma Fatteh (M)",
+    
+    "عصير موز": "Banana Juice", "عصير مواسم": "Seasonal Juice", "عصير مانجو": "Mango Juice",
+    "عصير فراولة": "Strawberry Juice", "عصير ليمون": "Lemon Juice", "عصير برتقال": "Orange Juice", "عصير ليمون نعناع": "Lemon Mint Juice",
+    
+    "بلو كراسو موهيتو": "Blue Curacao Mojito", "كلاسيك موهيتو": "Classic Mojito", "بلو بيري موهيتو": "Blueberry Mojito",
+    "باشون موهيتو": "Passion Fruit Mojito", "خوخ موهيتو": "Peach Mojito", "فراولة موهيتو": "Strawberry Mojito",
+    
+    "مانجو سموزي": "Mango Smoothie", "فراولة سموزي": "Strawberry Smoothie", "ليمون نعناع سموزي": "Lemon Mint Smoothie",
+    "بلو بيري سموزي": "Blueberry Smoothie", "خوخ سموزي": "Peach Smoothie", "كيوي سموزي": "Kiwi Smoothie",
+    "ميكس بيري سموزي": "Mixed Berry Smoothie", "مانجو كيوي سموزي": "Mango Kiwi Smoothie", "مانجو خوخ سموزي": "Mango Peach Smoothie",
+    
+    "ميلك شيك فانيليا": "Vanilla Milkshake", "ميلك شيك مانجو": "Mango Milkshake", "ميلك شيك فراولة": "Strawberry Milkshake",
+    "ميلك شيك نوتيلا": "Nutella Milkshake", "ميلك شيك اوريو": "Oreo Milkshake", "ميلك شيك لوتس": "Lotus Milkshake",
+    
+    "شاي ساخن": "Hot Tea", "شاي فلفر": "Flavored Tea", "قهوة تركي": "Turkish Coffee", "قهوة تركي دوبل": "Double Turkish Coffee",
+    "اعشاب": "Herbs", "قهوة حليب": "Coffee with Milk", "قهوة نوتيلا/بندق": "Nutella/Hazelnut Coffee", "هوت شوكليت": "Hot Chocolate",
+    "اسبريسو": "Espresso", "اسبريسو دبل": "Double Espresso", "اسبريسو ميكاتو": "Espresso Macchiato", "اسبريسو دبل ميكاتو": "Double Espresso Macchiato",
+    "كابوتشينو": "Cappuccino", "لاتيه": "Latte", "هوت سيدر": "Hot Cider", "نسكافيه": "Nescafe",
+    "امريكان كوفي": "American Coffee", "هوت موكا": "Hot Mocha", "ايس لاتيه": "Iced Latte",
+    "ايس كابيتشينو": "Iced Cappuccino", "ايس امريكان كوفي": "Iced American Coffee",
+    
+    "وافلز نوتيلا": "Nutella Waffles", "وافلز كراميل": "Caramel Waffles", "وافلز مكسرات": "Nuts Waffles",
+    "وافلز اوريو": "Oreo Waffles", "وافلز لوتس": "Lotus Waffles", "وافلز سادة": "Plain Waffles",
+    
+    "لوتس ايس كريم": "Lotus Ice Cream", "كلاسيك ايس كريم": "Classic Ice Cream", "فروت ايس كريم": "Fruit Ice Cream",
+    "اكسترا فليفر": "Extra Flavor", "اكسترا اسبريسو": "Extra Espresso", "اكسترا لبن": "Extra Milk", "اكسترا نوتيلا": "Extra Nutella",
+    "اكسترا ايس كريم بولة": "Extra Ice Cream Scoop", "اكسترا صوص": "Extra Sauce", "اكسترا فواكه": "Extra Fruits",
+    
+    "عرض 1+1 | Large + Medium Free": "Offer 1+1 | Large + Medium Free",
+    "اضغط هنا لتصفح واختيار البيتزا": "Click here to browse and select Pizza",
+    "Enjoy Every Bite": "Enjoy Every Bite", "حلويات ومخبوزات | Enjoy Every Bite": "Desserts & Pastries | Enjoy Every Bite",
+    "Taste The Chill": "Taste The Chill", "فتح الله FATHALLA": "Fathalla",
+    "جودة منذ 1948": "Quality since 1948", "للطلب والاستفسار": "For orders and inquiries",
+    "الأكثر طلباً": "Best Seller", "قيمة رائعة": "Great Value",
+    "عرض 2+1 | اشترِ 2 واحصل على 1 مجاناً": "Offer 2+1 | Buy 2 get 1 Free",
+    "تمت الإضافة للسلة ✔️": "Added to Cart ✔️"
 };
 const revDictionary = Object.fromEntries(Object.entries(dictionary).map(([k,v]) => [v,k]));
 
@@ -1096,7 +905,8 @@ function toggleLanguage() {
         if (node.nodeType === 3) {
             let text = node.nodeValue.trim();
             if (text) {
-                let cleanText = text.replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]|\uD83C[\uDF00-\uDFFF]|\uD83D[\uDC00-\uDE4F]/g, '').trim();
+                // إزالة الإيموجي من المقارنة لضمان دقة الترجمة
+                let cleanText = text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();
                 if (isEnglish && dictionary[cleanText]) {
                     node.nodeValue = node.nodeValue.replace(cleanText, dictionary[cleanText]);
                 } else if (!isEnglish && revDictionary[cleanText]) {
@@ -1108,6 +918,7 @@ function toggleLanguage() {
         }
     }
     translateDOM(document.body);
+    updateCartUI(); // تحديث السلة لتترجم الأصناف بداخلها أيضاً
 }
 
 // --- نظام سلة المشتريات والباركود ---
@@ -1120,19 +931,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const nameEl = card.querySelector('.item-name');
                 const priceEl = card.querySelector('.item-price');
                 if(nameEl && priceEl) {
-                    const name = nameEl.innerText;
+                    const displayedName = nameEl.innerText;
                     const price = parseFloat(priceEl.innerText.replace(/[^\d.]/g, ''));
-                    addToCart(name, price);
+                    addToCart(displayedName, price);
                 }
             });
         }
     });
 });
 
-function addToCart(name, price) {
-    cart.push({ name, price });
+function addToCart(displayedName, price) {
+    // نحتفظ بالاسم العربي دائماً في الخلفية لضمان عمل الباركود
+    let arabicName = isEnglish ? (revDictionary[displayedName] || displayedName) : displayedName;
+    cart.push({ name: arabicName, price });
     updateCartUI();
+    
     const toast = document.getElementById('toast');
+    toast.innerText = isEnglish ? "Added to Cart ✔️" : "تمت الإضافة للسلة ✔️";
     toast.style.bottom = '30px';
     setTimeout(() => { toast.style.bottom = '-60px'; }, 2000);
 }
@@ -1151,13 +966,18 @@ function updateCartUI() {
     cart.forEach((item, index) => {
         total += item.price;
         const bCode = barcodeDB[item.name] || '000000000000';
+        
+        // عند عرض السلة، نعرض الاسم بناءً على اللغة الحالية
+        let displayedName = isEnglish ? (dictionary[item.name] || item.name) : item.name;
+        let currency = isEnglish ? "EGP" : "جنيه";
+        
         container.innerHTML += `
             <div class="item-card" style="cursor:default; border-left: 4px solid var(--primary);">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
-                    <div class="item-name" style="margin:0;">${item.name}</div>
+                    <div class="item-name" style="margin:0;">${displayedName}</div>
                     <button onclick="removeFromCart(${index})" style="background:#dc3545; color:white; border:none; border-radius:5px; padding:5px 10px; cursor:pointer;">X</button>
                 </div>
-                <div class="item-price" style="font-size:1.2rem; margin-top:5px;">${item.price} <span class="currency">جنيه</span></div>
+                <div class="item-price" style="font-size:1.2rem; margin-top:5px;">${item.price} <span class="currency">${currency}</span></div>
                 <div style="text-align:center; margin-top:15px; border-top:1px dashed #ccc; padding-top:10px;">
                     <div class="barcode-font">*${bCode}*</div>
                     <div style="font-size:12px; letter-spacing:3px; color:#888; font-family:Arial,sans-serif;">${bCode}</div>
