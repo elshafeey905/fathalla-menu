@@ -26,7 +26,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     transition: background-color 0.4s ease, color 0.4s ease;
-    padding-bottom: 80px;
+    padding-bottom: 80px; 
 }
 
 .menu-container {
@@ -89,7 +89,7 @@ body {
 .section-header h2 { font-size: 2.2rem; font-weight: 900; text-shadow: 1px 1px 4px rgba(0,0,0,0.3); }
 .section-header .subtitle { font-size: 1rem; opacity: 0.9; font-weight: 600; }
 
-/* Items Grid */
+/* Items Grid - كروت صغيرة وعمودين للجوال */
 .items-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
@@ -174,62 +174,33 @@ body.dark-mode .item-card { background: #1F1F1F !important; border-color: #333 !
 body.dark-mode .item-name, body.dark-mode .drinks-subsection h3 { color: #f0f0f0 !important; }
 body.dark-mode .item-desc { color: #999 !important; }
 
-/* --- تنسيقات سلة المشتريات العائمة والباركود المتمركز --- */
+/* --- تنسيقات سلة المشتريات العائمة --- */
 #cart-icon-floating {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: linear-gradient(135deg, var(--primary), var(--gold));
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 26px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    cursor: pointer;
-    z-index: 9999;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid #fff;
+    position: fixed; bottom: 25px; right: 25px; background: linear-gradient(135deg, var(--primary), var(--gold));
+    color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center;
+    align-items: center; font-size: 28px; box-shadow: 0 5px 20px rgba(0,0,0,0.4); cursor: pointer;
+    z-index: 9999; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 2px solid #fff;
 }
-#cart-icon-floating:hover {
-    transform: scale(1.15) rotate(-10deg);
-}
+#cart-icon-floating:hover { transform: scale(1.15) rotate(-10deg); }
 #cart-count-floating {
-    position: absolute;
-    top: -5px;
-    left: -5px;
-    background: var(--dark);
-    color: var(--gold);
-    font-size: 14px;
-    font-weight: 900;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #fff;
+    position: absolute; top: -5px; left: -5px; background: var(--dark); color: var(--gold);
+    font-size: 14px; font-weight: 900; width: 24px; height: 24px; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center; border: 2px solid #fff;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
+
 .toast {
     position: fixed; bottom: -60px; left: 50%; transform: translateX(-50%); background-color: var(--green);
     color: white; padding: 12px 25px; border-radius: 30px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.2);
     transition: bottom 0.4s ease; z-index: 10000;
 }
-.barcode-font { font-family: 'Libre Barcode 39', cursive; font-size: 38px; color: var(--dark); line-height: 1; text-align: center; display: block; width: 100%; margin: 0 auto; }
-body.dark-mode .barcode-font { color: #fff; }
 </style>
 <base target="_blank">
 </head>
 <body>
 
-<!-- رسالة تأكيد الإضافة -->
 <div id="toast" class="toast">تمت الإضافة للسلة ✔️</div>
 
-<!-- أيقونة سلة المشتريات العائمة -->
 <div id="cart-icon-floating" onclick="showSection('cart')">
     🛒<div id="cart-count-floating">0</div>
 </div>
@@ -240,7 +211,6 @@ body.dark-mode .barcode-font { color: #fff; }
 
 <div class="menu-container">
   
-  <!-- Header -->
   <div class="header">
     <div style="position: absolute; top: 15px; left: 15px; z-index: 1000; display: flex; gap: 8px;">
         <button id="theme-toggle" onclick="toggleTheme()" style="background: rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); width: 40px; height: 40px; border-radius: 50%; font-size: 16px; cursor: pointer; display: flex; justify-content: center; align-items: center; color: #fff;">🌙</button>
@@ -249,35 +219,29 @@ body.dark-mode .barcode-font { color: #fff; }
 
     <img src="logo.png" alt="العلامة التجارية" style="max-width: 100%; max-height: 100px; object-fit: contain; display: block; margin: 0 auto; margin-top: 15px;">
     
-    <!-- شعار كيتشن منيو الاحترافي المدمج مع القبعة (انجليزي ثابت ومتناسق) -->
     <style>
         @keyframes hatFloat {
             0%, 100% { transform: translateX(-50%) rotate(-10deg); filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
-            50% { transform: translateX(-50%) translateY(-4px) rotate(-2deg); filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.6)); }
+            50% { transform: translateX(-50%) translateY(-3px) rotate(0deg); filter: drop-shadow(0 4px 8px rgba(212, 175, 55, 0.6)); }
         }
-        .kitchen-title-wrapper { display: inline-flex; flex-direction: column; align-items: center; margin-top: 10px; cursor: pointer; transition: 0.3s; }
-        .kitchen-title { text-align: center; color: #ffffff; font-size: 28px; font-weight: 900; letter-spacing: 2px; font-family: 'Cairo', sans-serif; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;}
-        
-        .k-letter { position: relative; display: inline-flex; align-items: center; justify-content: center;}
-        .chef-hat-icon { position: absolute; top: -22px; left: 50%; transform: translateX(-50%) rotate(-10deg); width: 34px; height: 34px; fill: #fff; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); transition: all 0.3s ease; animation: hatFloat 3s ease-in-out infinite; z-index: 2; }
-        
+        .kitchen-title-wrapper { display: inline-block; margin-top: 15px; cursor: pointer; transition: 0.3s; }
+        .kitchen-title { text-align: center; color: var(--gold); font-size: 28px; font-weight: 900; letter-spacing: 2px; font-family: 'Cairo', sans-serif; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); display: flex; align-items: baseline; justify-content: center; direction: ltr; }
+        .k-letter { position: relative; display: inline-block; }
+        .chef-hat-icon { position: absolute; top: -23px; left: 50%; transform: translateX(-50%) rotate(-10deg); width: 34px; height: 34px; fill: #fff; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); transition: all 0.3s ease; animation: hatFloat 3s ease-in-out infinite; z-index: 2; }
         .kitchen-title-wrapper:hover { transform: scale(1.05); }
-        .kitchen-title-wrapper:hover .kitchen-title { color: var(--gold); }
-        .kitchen-title-wrapper:hover .chef-hat-icon { fill: var(--gold); transform: translateX(-50%) rotate(0deg) scale(1.1); top: -25px; animation-play-state: paused; }
+        .kitchen-title-wrapper:hover .chef-hat-icon { fill: var(--gold); animation-play-state: paused; }
     </style>
     
-    <div class="kitchen-title-wrapper" style="direction: ltr;">
-        <div class="kitchen-title">
+    <div class="kitchen-title-wrapper">
+        <div class="kitchen-title" translate="no">
             <span class="k-letter">
                 <svg class="chef-hat-icon" viewBox="0 0 24 24"><path d="M7 15h10v4a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4zm11-2c1.66 0 3-1.34 3-3s-1.34-3-3-3c-.15 0-.29.02-.43.05A4.996 4.996 0 0 0 12 2a4.996 4.996 0 0 0-5.57 5.05C6.29 7.02 6.15 7 6 7c-1.66 0-3 1.34-3 3s1.34 3 3 3h12z"/></svg>
-                <span>K</span>
-            </span>
-            <span>ITCHEN MENU</span>
+                K
+            </span>ITCHEN MENU
         </div>
     </div>
   </div>  
 
-  <!-- Navigation -->
   <div class="nav-tabs">
     <button class="nav-tab tab-offers active" onclick="showSection('offers')">🔥🔥عروض</button>
     <button class="nav-tab" onclick="showSection('salads')">🥗 سلاطات</button>
@@ -294,7 +258,6 @@ body.dark-mode .barcode-font { color: #fff; }
     <button class="nav-tab" onclick="showSection('dessert')">🍰 حلويات</button>
   </div>
 
-  <!-- Cart Section -->
   <div id="cart" class="section">
     <div class="section-header" style="background: var(--dark); box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);">
       <h2 style="color: var(--gold);">🛒 سلة المشتريات</h2>
@@ -306,7 +269,6 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Offers Section -->
   <div id="offers" class="section active">
         <style>
             @keyframes gentleBreathe {
@@ -341,6 +303,8 @@ body.dark-mode .barcode-font { color: #fff; }
         </div>       
         
         <div class="items-grid">
+            <div class="item-card"><div class="item-name">فرخة مشوية 285</div><div class="item-price">285 <span class="currency">جنيه</span></div></div>
+            <div class="item-card"><div class="item-name">فرخة + نص</div><div class="item-price">400 <span class="currency">جنيه</span></div></div>
             <div class="item-card"><div class="item-name">كومبو 2 كفته مشوية</div><div class="item-desc">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
             <div class="item-card"><div class="item-name">كومبو 1 كفته، 1 صدور</div><div class="item-desc">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
             <div class="item-card"><div class="item-name">كومبو 1 كفته، 1 شيش</div><div class="item-desc">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
@@ -350,62 +314,58 @@ body.dark-mode .barcode-font { color: #fff; }
         </div>
   </div>
 
-  <!-- Pizza Offers Section -->
   <div id="pizza-offers" class="section">
     <div class="section-header">
       <h2>🍕 عروض البيتزا 1+1</h2>
       <div class="subtitle">كبير + وسط مجاناً</div>
     </div>
     <div class="items-grid">
-      <div class="item-card"><div class="item-name">بيتزا بسطرمة (عرض 1+1)</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا مارجريتا (عرض 1+1)</div><div class="item-price">170 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا ببروني (عرض 1+1)</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا مشكل جبن (عرض 1+1)</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا مشكل لحوم (عرض 1+1)</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا سجق (عرض 1+1)</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا جمبري (عرض 1+1)</div><div class="item-price">380 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا شاورما فراخ (عرض 1+1)</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا سي فود (عرض 1+1)</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا دجاج رانش (عرض 1+1)</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">بيتزا دجاج باربيكيو (عرض 1+1)</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا بسطرمة عرض 1+1</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا مارجريتا عرض 1+1</div><div class="item-price">170 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا ببروني عرض 1+1</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا مشكل جبن عرض 1+1</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا مشكل لحوم عرض 1+1</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا سجق عرض 1+1</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا جمبري عرض 1+1</div><div class="item-price">380 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا شاورما فراخ عرض 1+1</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا سي فود عرض 1+1</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا دجاج رانش عرض 1+1</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">بيتزا دجاج باربيكيو عرض 1+1</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
     </div>
   </div>
 
-  <!-- Pie Offers Section -->
   <div id="pie-offers" class="section">
     <div class="section-header">
       <h2>🥧 عروض الفطير 1+1</h2>
       <div class="subtitle">كبير + وسط مجاناً</div>
     </div>
     <div class="items-grid">
-        <div class="item-card"><div class="item-name">فطيرة بسطرمة (عرض 1+1)</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة خضروات (عرض 1+1)</div><div class="item-price">175 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة دجاج (عرض 1+1)</div><div class="item-price">245 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة مشكل جبن (عرض 1+1)</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة مشكل لحوم (عرض 1+1)</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة سجق (عرض 1+1)</div><div class="item-price">235 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة سي فود (عرض 1+1)</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة شاورما فراخ (عرض 1+1)</div><div class="item-price">265 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فطيرة جمبري (عرض 1+1)</div><div class="item-price">385 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فطيرة بسطرمة عرض 1+1</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فطيرة خضروات عرض 1+1</div><div class="item-price">175 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فطيرة دجاج عرض 1+1</div><div class="item-price">245 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فطيرة مشكل جبن عرض 1+1</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فطيرة مشكل لحوم عرض 1+1</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فطيرة سجق عرض 1+1</div><div class="item-price">235 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فطيرة سي فود عرض 1+1</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فطيرة شاورما فراخ عرض 1+1</div><div class="item-price">265 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فطيرة جمبري عرض 1+1</div><div class="item-price">385 <span class="currency">جنيه</span></div></div>
     </div>
   </div>
 
-  <!-- Shawerma Offers Section -->
   <div id="shawerma-offers" class="section">
     <div class="section-header">
       <h2>🌯 عروض الشاورما 2+1</h2>
       <div class="subtitle">اشتري 2 واحصل على 1 مجاناً</div>
     </div>
     <div class="items-grid">
-      <div class="item-card"><div class="item-name">فتة شاورما فراخ وسط (عرض 2+1)</div><div class="item-price">310 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">فتة شاورما فراخ لارج (عرض 2+1)</div><div class="item-price">360 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">ساندوتش شاورما فراخ كبير (عرض 2+1)</div><div class="item-price">250 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">ساندوتش شاورما فراخ عربي (عرض 2+1)</div><div class="item-price">320 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">ساندوتش شاورما فراخ وسط (عرض 2+1)</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">فتة شاورما فراخ وسط عرض 2+1</div><div class="item-price">310 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">فتة شاورما فراخ كبير عرض 2+1</div><div class="item-price">360 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">سندوتش شاورما فراخ كبير عرض 2+1</div><div class="item-price">250 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">سندوتش شاورما فراخ عربى عرض 2+1</div><div class="item-price">320 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">سندوتش شاورمة فراخ سورى وسط عرض 2+1</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
     </div>
   </div>
 
-  <!-- Salads Section -->
   <div id="salads" class="section">
     <div class="section-header">
       <h2>🥗 سلاطات</h2>
@@ -423,7 +383,6 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Appetizers Section -->
   <div id="appetizers" class="section">
     <div class="section-header">
       <h2>🍟 مقبلات</h2>
@@ -442,7 +401,6 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Pizza Section (Main) -->
   <div id="pizza" class="section">
     <div class="section-header">
       <h2>🍕 بيتزا</h2>
@@ -452,22 +410,21 @@ body.dark-mode .barcode-font { color: #fff; }
     <div class="drinks-subsection">
       <h3>🍕 بيتزا (خصم 10%)</h3>
       <div class="items-grid">
-          <div class="item-card"><div class="item-name">بيتزا مارجريتا كبير (خصم 10%)</div><div class="item-price">190 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا مشكل جبن كبير (خصم 10%)</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا سلامي كبير (خصم 10%)</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا تشيكن رانش كبير (خصم 10%)</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا تشيكن باربكيو كبير (خصم 10%)</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا مشكل لحوم كبير (خصم 10%)</div><div class="item-price">270 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا سجق كبير (خصم 10%)</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا بسطرمة كبير (خصم 10%)</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا جمبري كبير (خصم 10%)</div><div class="item-price">380 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا مشكل سي فوود كبير (خصم 10%)</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">بيتزا شاورما فراخ كبير (خصم 10%)</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا مارجريتا كبير خصم 10%</div><div class="item-price">190 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا مشكل جبن كبير خصم 10%</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا ببرونى كبير خصم 10%</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا تشيكن رانش كبير خصم 10%</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا تشيكن باربكيو كبير خصم 10%</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا لحوم مشكل كبير خصم 10%</div><div class="item-price">270 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا سجق كبير خصم 10%</div><div class="item-price">225 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا بسطرمة كبير خصم 10%</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا جمبرى كبير خصم 10%</div><div class="item-price">380 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا مشكل سى فود كبير خصم 10%</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">بيتزا شاورما فراخ كبير خصم 10%</div><div class="item-price">240 <span class="currency">جنيه</span></div></div>
       </div>
     </div>
   </div>
 
-  <!-- Pie Section (Main) -->
   <div id="pie" class="section">
     <div class="section-header">
       <h2>🥧 فطائر</h2>
@@ -489,20 +446,19 @@ body.dark-mode .barcode-font { color: #fff; }
     <div class="drinks-subsection">
       <h3>🥩 فطائر حادق (خصم 10%)</h3>
       <div class="items-grid">
-          <div class="item-card"><div class="item-name">فطيرة خضروات كبير (خصم 10%)</div><div class="item-price">205 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">فطيرة مشكل جبن كبير (خصم 10%)</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">فطيرة سجق كبير (خصم 10%)</div><div class="item-price">235 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">فطيرة بسطرمة كبير (خصم 10%)</div><div class="item-price">250 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">فطيرة دجاج كبير (خصم 10%)</div><div class="item-price">250 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">فطيرة مشكل لحوم كبير (خصم 10%)</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">فطيرة جمبري كبير (خصم 10%)</div><div class="item-price">385 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">فطيرة سي فوود كبير (خصم 10%)</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
-          <div class="item-card"><div class="item-name">فطيرة شاورما فراخ كبير (خصم 10%)</div><div class="item-price">265 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">فطيرة خضروات كبير خصم 10%</div><div class="item-price">205 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">فطيرة مشكل جبن كبير خصم 10%</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">فطيرة سجق كبير خصم 10%</div><div class="item-price">235 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">فطيرة بسطرمة كبير خصم 10%</div><div class="item-price">250 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">فطيرة دجاج كبير خصم 10%</div><div class="item-price">250 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">فطيرة مشكل لحوم كبير خصم 10%</div><div class="item-price">260 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">فطيرة جمبرى كبير خصم 10%</div><div class="item-price">385 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">فطيرة سى فوود كبير خصم 10%</div><div class="item-price">370 <span class="currency">جنيه</span></div></div>
+          <div class="item-card"><div class="item-name">فطيرة شاورما فراخ كبير خصم 10%</div><div class="item-price">265 <span class="currency">جنيه</span></div></div>
       </div>
     </div>
   </div>
 
-  <!-- Crepe Section -->
   <div id="crepe" class="section">
     <div class="section-header">
       <h2>🌯 كريب</h2>
@@ -530,7 +486,6 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Pasta Section -->
   <div id="pasta" class="section">
     <div class="section-header">
       <h2>🍝 مكرونة</h2>
@@ -543,7 +498,6 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Meals Section -->
   <div id="meals" class="section">
     <div class="section-header">
       <h2>🍱 وجبات</h2>
@@ -552,45 +506,42 @@ body.dark-mode .barcode-font { color: #fff; }
     <div class="items-grid">
       <div class="item-card"><div class="item-name">وجبة نص فرخة مشوية</div><div class="item-price">230 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">وجبة شيش طاووق</div><div class="item-price">185 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">وجبة فلتو مشوي</div><div class="item-price">350 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">وجبة فلتو مشوى</div><div class="item-price">350 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">وجبة كفتة مشوية</div><div class="item-price">200 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">مشكل: كفتة/شيش/فلتو</div><div class="item-price">250 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">وجبة صدور مشوية</div><div class="item-price">185 <span class="currency">جنيه</span></div></div>
     </div>
   </div>
 
-  <!-- Grilled Section -->
   <div id="grilled" class="section">
     <div class="section-header">
       <h2>🔥 مشويات</h2>
       <div class="subtitle">استمتع بكل قضمة</div>
     </div>
     <div class="items-grid">
-      <div class="item-card"><div class="item-name">كفتة مشوية</div><div class="price-container"><span class="item-price">490 <span class="currency">كيلو</span></span></div></div>
+      <div class="item-card"><div class="item-name">كفتة مشوية كيلو</div><div class="price-container"><span class="item-price">490 <span class="currency">كيلو</span></span></div></div>
       <div class="item-card"><div class="item-name">فرخة مشوية</div><div class="item-price">375 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">نصف فرخة مشوية</div><div class="item-price">185 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">فلتو مشوي</div><div class="price-container"><span class="item-price">1150 <span class="currency">كيلو</span></span></div></div>
-      <div class="item-card"><div class="item-name">شيش طاووق</div><div class="price-container"><span class="item-price">465 <span class="currency">كيلو</span></span></div></div>
-      <div class="item-card"><div class="item-name">صدور فراخ</div><div class="price-container"><span class="item-price">490 <span class="currency">كيلو</span></span></div></div>
+      <div class="item-card"><div class="item-name">نص فرخة مشويه</div><div class="item-price">185 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">فلتو مشوى بالوزن</div><div class="price-container"><span class="item-price">1150 <span class="currency">كيلو</span></span></div></div>
+      <div class="item-card"><div class="item-name">شيش طاووق كيلو</div><div class="price-container"><span class="item-price">465 <span class="currency">كيلو</span></span></div></div>
+      <div class="item-card"><div class="item-name">صدور مشويه بالوزن</div><div class="price-container"><span class="item-price">490 <span class="currency">كيلو</span></span></div></div>
     </div>
   </div>
 
-  <!-- Shawerma Section -->
   <div id="shawerma" class="section">
     <div class="section-header">
       <h2>🌯 شاورما</h2>
       <div class="subtitle">استمتع بكل قضمة</div>
     </div>
     <div class="items-grid">
-      <div class="item-card"><div class="item-name">شاورما فراخ عربي</div><div class="item-price">160 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">شاورما فراخ سوري (L)</div><div class="item-price">125 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">شاورما فراخ سوري (M)</div><div class="item-price">115 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">فتة شاورما فراخ (L)</div><div class="item-price">180 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">فتة شاورما فراخ (M)</div><div class="item-price">155 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">سندوتش شاورما فراخ عربى</div><div class="item-price">160 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">سندوتش شاورمة فراخ سورى كبير</div><div class="item-price">125 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">سندوتش شاورمة فراخ سورى وسط</div><div class="item-price">115 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">فتة شاورما فراخ كبير</div><div class="item-price">180 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">فتة شاورما فراخ وسط</div><div class="item-price">155 <span class="currency">جنيه</span></div></div>
     </div>
   </div>
 
-  <!-- Drinks Section -->
   <div id="drinks" class="section">
     <div class="section-header">
       <h2>🥤 مشروبات</h2>
@@ -599,13 +550,12 @@ body.dark-mode .barcode-font { color: #fff; }
     <div class="drinks-subsection">
       <h3>🍊 عصائر</h3>
       <div class="items-grid">
-        <div class="item-card"><div class="item-name">عصير موز</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">عصيرموز</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
         <div class="item-card"><div class="item-name">عصير مواسم</div><div class="item-price">50 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير مانجو</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير فراولة</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير ليمون</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير برتقال</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">عصير ليمون نعناع</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">عصيرمانجو</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">عصيرفراولة</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">عصيرليمون</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">ليمون نعناع</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
       </div>
     </div>
     <div class="drinks-subsection">
@@ -613,59 +563,57 @@ body.dark-mode .barcode-font { color: #fff; }
       <div class="items-grid">
         <div class="item-card"><div class="item-name">بلو كراسو موهيتو</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
         <div class="item-card"><div class="item-name">كلاسيك موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">بلو بيري موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">بلو بيرى موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
         <div class="item-card"><div class="item-name">باشون موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">خوخ موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فراولة موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">بيتش موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">ستروبيرى موهيتو</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
       </div>
     </div>
     <div class="drinks-subsection">
       <h3>🥤 سموزي</h3>
       <div class="items-grid">
-        <div class="item-card"><div class="item-name">مانجو سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فراولة سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ليمون نعناع سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">بلو بيري سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">خوخ سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كيوي سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميكس بيري سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">مانجو كيوي سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">مانجو خوخ سموزي</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">مانجو سموزى</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">فراولة سموزى</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">بلو بيرى سموزى</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">خوخ سموزى</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">كيوى سموزى</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">ميكس بيرى سموزى</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">مانجو كيوى سموزى</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">مانجوخوخ سموزى</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
       </div>
     </div>
     <div class="drinks-subsection">
       <h3>🥛 ميلك شيك</h3>
       <div class="items-grid">
-        <div class="item-card"><div class="item-name">ميلك شيك فانيليا</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك مانجو</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك فراولة</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك نوتيلا</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك اوريو</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">ميلك شيك لوتس</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">ميلك تشيك فانيليا</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">ميلك تشيك مانجو</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">ميلك تشيك فراولة</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">ميلك تشيك نوتيلا</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">ميلك تشيك اوريو</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">ميلك تشيك لوتس</div><div class="item-price">65 <span class="currency">جنيه</span></div></div>
       </div>
     </div>
   </div>
 
-  <!-- Barista Section -->
   <div id="barista" class="section">
     <div class="section-header">
       <h2>☕ بارستا</h2>
       <div class="subtitle">تذوق الانتعاش</div>
     </div>
     <div class="items-grid">
-      <div class="item-card"><div class="item-name">شاي ساخن</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">شاي فلفر</div><div class="item-price">25 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">شاى ساخن</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">شاي فليفر</div><div class="item-price">25 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">قهوة تركي</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">قهوة تركي دوبل</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">قهوة تركي دبل</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">اعشاب</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">قهوة حليب</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">قهوة نوتيلا/بندق</div><div class="item-price">50 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">هوت شوكليت</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اسبريسو</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اسبريسو دبل</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اسبريسو ميكاتو</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اسبريسو دبل ميكاتو</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">كابوتشينو</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">اسبرسو</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">اسبرسو دبل</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">اسبرسو ميكاتو</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">دبل ميكاتو</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">كابيتشينو</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">لاتيه</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">هوت سيدر</div><div class="item-price">40 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">نسكافيه</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
@@ -677,7 +625,6 @@ body.dark-mode .barcode-font { color: #fff; }
     </div>
   </div>
 
-  <!-- Dessert Section -->
   <div id="dessert" class="section">
     <div class="section-header">
       <h2>🍰 حلويات</h2>
@@ -687,30 +634,22 @@ body.dark-mode .barcode-font { color: #fff; }
       <h3>🧇 وافلز</h3>
       <div class="items-grid">
         <div class="item-card"><div class="item-name">وافلز نوتيلا</div><div class="item-price">75 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">وافلز كراميل</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">وافلز مكسرات</div><div class="item-price">95 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">وافلز اوريو</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">وافلز سادة</div><div class="item-price">70 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">وافلز أوريو</div><div class="item-price">80 <span class="currency">جنيه</span></div></div>
         <div class="item-card"><div class="item-name">وافلز لوتس</div><div class="item-price">75 <span class="currency">جنيه</span></div></div>
       </div>
     </div>
     <div class="drinks-subsection">
       <h3>🍨 ايس كريم</h3>
       <div class="items-grid">
-        <div class="item-card"><div class="item-name">لوتس ايس كريم</div><div class="item-price">50 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">كلاسيك ايس كريم</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">فروت ايس كريم</div><div class="item-price">50 <span class="currency">جنيه</span></div></div>
         <div class="item-card"><div class="item-name">اكسترا فليفر</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا اسبريسو</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
+        <div class="item-card"><div class="item-name">اكسترا اسبرسو</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
         <div class="item-card"><div class="item-name">اكسترا لبن</div><div class="item-price">20 <span class="currency">جنيه</span></div></div>
         <div class="item-card"><div class="item-name">اكسترا نوتيلا</div><div class="item-price">25 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا ايس كريم بولة</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا صوص</div><div class="item-price">25 <span class="currency">جنيه</span></div></div>
-        <div class="item-card"><div class="item-name">اكسترا فواكه</div><div class="item-price">25 <span class="currency">جنيه</span></div></div>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="footer">
     <h3 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 5px;">فتح الله FATHALLA</h3>
     <p style="color: var(--gold); font-weight: bold; letter-spacing: 2px;">جودة منذ 1948</p>
@@ -742,85 +681,93 @@ body.dark-mode .barcode-font { color: #fff; }
 
 <script>
 // ==========================================================
-// 1. قاعدة بيانات الباركود الحقيقية
+// 1. قاعدة بيانات الباركود الحقيقية والنهائية
 // ==========================================================
 const barcodeDB = {
-    // --- العروض ---
+    // العروض والوجبات
     "كومبو 2 كفته مشوية": "2041810000420", "كومبو 1 كفته، 1 صدور": "2041820000373", "كومبو 1 كفته، 1 شيش": "2041820000366",
-    "عرض وجبة كفته مشوية": "204120000", "عرض وجبة الصدور": "2041210001003", "عرض وجبة شيش طاووق": "2041210000990",
+    "عرض وجبة كفته مشوية": "2307734000008", "عرض وجبة الصدور": "2041210001003", "عرض وجبة شيش طاووق": "2307735000007",
+    "فرخة مشوية 285": "2042320000276", "فرخة + نص": "2313771000000",
     
-    // --- عروض البيتزا 1+1 والخصومات ---
-    "بيتزا بسطرمة (عرض 1+1)": "2041110000441", "بيتزا مارجريتا (عرض 1+1)": "2041110000342",
-    "بيتزا ببروني (عرض 1+1)": "2041110000540", "بيتزا مشكل جبن (عرض 1+1)": "2041110000328",
-    "بيتزا مشكل لحوم (عرض 1+1)": "2041110000564", "بيتزا سجق (عرض 1+1)": "2041110000427",
-    "بيتزا جمبري (عرض 1+1)": "2041110000588", "بيتزا شاورما فراخ (عرض 1+1)": "2041110000465",
-    "بيتزا سي فود (عرض 1+1)": "2041110000601", "بيتزا دجاج رانش (عرض 1+1)": "2041110000755",
-    "بيتزا دجاج باربيكيو (عرض 1+1)": "2041110000762",
-    "بيتزا مارجريتا كبير (خصم 10%)": "2307827000007", "بيتزا مشكل جبن كبير (خصم 10%)": "2307833000008",
-    "بيتزا سلامي كبير (خصم 10%)": "2307841000007", "بيتزا تشيكن رانش كبير (خصم 10%)": "2314645000003",
-    "بيتزا تشيكن باربكيو كبير (خصم 10%)": "2314646000002", "بيتزا مشكل لحوم كبير (خصم 10%)": "2307849000009",
-    "بيتزا سجق كبير (خصم 10%)": "2307837000004", "بيتزا بسطرمة كبير (خصم 10%)": "2307839000002",
-    "بيتزا جمبري كبير (خصم 10%)": "2307851000004", "بيتزا مشكل سي فوود كبير (خصم 10%)": "2307853000002",
-    "بيتزا شاورما فراخ كبير (خصم 10%)": "2307855000000",
+    // عروض البيتزا 1+1 (مخفية، يتم تحويلها برمجيا للأحجام الكبيرة والوسط)
+    "بيتزا مارجريتا كبير": "2041110000342", "بيتزا مارجريتا وسط": "2041110000335",
+    "بيتزا مشكل جبن كبير": "2041110000328", "بيتزا مشكل جبن وسط": "2041110000311",
+    "بيتزا ببرونى كبير": "2041110000540", "بيتزا ببرونى وسط": "2041110000533",
+    "بيتزا تيشكن رانش لارج": "2041110000755", "بيتزا تيشكن رانش وسط": "2041110000779",
+    "بيتزا تيشكن باربيكيو لارج": "2041110000762", "بيتزا تيشكن باربيكيو وسط": "2041110000786",
+    "بيتزا لحوم مشكل كبير": "2041110000564", "بيتزا لحوم مشكل وسط": "2041110000557",
+    "بيتزا سجق كبير": "2041110000427", "بيتزا سجق وسط": "2041110000410",
+    "بيتزا بسطرمة كبير": "2041110000441", "بيتزا بسطرمة وسط": "2041110000434",
+    "بيتزا جمبرى كبير": "2041110000588", "بيتزا جمبرى وسط": "2041110000471",
+    "بيتزا مشكل سى فوود كبير": "2041110000601", "بيتزا مشكل سى فوود وسط": "2041110000595",
+    "بيتزا شاورما فراخ كبير": "2041110000465", "بيتزا شاورما فراخ وسط": "2041110000458",
     
-    // --- عروض الفطير 1+1 والخصومات ---
-    "فطيرة بسطرمة (عرض 1+1)": "2041120000332", "فطيرة خضروات (عرض 1+1)": "2041120000233",
-    "فطيرة دجاج (عرض 1+1)": "2041120000479", "فطيرة مشكل جبن (عرض 1+1)": "2041120000417",
-    "فطيرة مشكل لحوم (عرض 1+1)": "2041120000394", "فطيرة سجق (عرض 1+1)": "2041120000318",
-    "فطيرة سي فود (عرض 1+1)": "2041120000516", "فطيرة شاورما فراخ (عرض 1+1)": "2041120000356",
-    "فطيرة جمبري (عرض 1+1)": "2041120000455",
-    "فطيرة خضروات كبير (خصم 10%)": "2307859000006", "فطيرة مشكل جبن كبير (خصم 10%)": "2307863000009",
-    "فطيرة سجق كبير (خصم 10%)": "2307865000007", "فطيرة بسطرمة كبير (خصم 10%)": "2307867000005",
-    "فطيرة دجاج كبير (خصم 10%)": "2307871000008", "فطيرة مشكل لحوم كبير (خصم 10%)": "2307869000003",
-    "فطيرة جمبري كبير (خصم 10%)": "2307879000000", "فطيرة سي فوود كبير (خصم 10%)": "2307881000005",
-    "فطيرة شاورما فراخ كبير (خصم 10%)": "2307885000001",
-    
-    // --- عروض الشاورما 2+1 ---
-    "فتة شاورما فراخ وسط (عرض 2+1)": "2044250000081", "فتة شاورما فراخ لارج (عرض 2+1)": "2044250000098",
-    "ساندوتش شاورما فراخ كبير (عرض 2+1)": "2044260000064", "ساندوتش شاورما فراخ عربي (عرض 2+1)": "2044260000118",
-    "ساندوتش شاورما فراخ وسط (عرض 2+1)": "2044260000057",
+    // عروض الفطير 1+1
+    "فطيرة خضروات كبير": "2041120000233", "فطيرة خضروات وسط": "2041120000226",
+    "فطيرة مشكل جبن كبير": "2041120000417", "فطيرة مشكل جبن وسط": "2041120000400",
+    "فطيرة سجق كبير": "2041120000318", "فطيرة سجق وسط": "2041120000301",
+    "فطيرة بسطرمة كبير": "2041120000332", "فطيرة بسطرمة وسط": "2041120000325",
+    "فطيرة دجاج كبير": "2041120000479", "فطيرة دجاج وسط": "2041120000462",
+    "فطيرة مشكل لحوم كبير": "2041120000394", "فطيرة مشكل لحوم وسط": "2041120000387",
+    "فطيرة جمبرى كبير": "2041120000455", "فطيرة جمبرى وسط": "2041120000448",
+    "فطيرة سى فوود كبير": "2041120000516", "فطيرة سى فوود وسط": "2041120000509",
+    "فطيرة شاورما فراخ كبير": "2041120000356", "فطيرة شاورما فراخ وسط": "2041120000349",
 
-    // --- باقي الأصناف العادية ---
-    "سلطة خضراء": "2307746000003", "سلطة بنجر": "2307743000006", "سلطة كول سلو": "2307749000000",
-    "سلطة تومية": "2307744000005", "سلطة بابا غنوج": "2307742000007", "سلطة حمص": "2307745000004",
-    "سلطة طحينة": "2307748000001", "سلطة تونية": "2307750000006", "سمبوسك جبن": "7751", "سمبوسك لحم": "7752",
-    "باكيت بطاطس": "2307755000001", "بطاطس جبنة": "2307756000000", "ارز بسمتي": "7761", "ممبار": "7758",
-    "كبيبة لحم": "7753", "ورق عنب أرز": "7759", "مشكل مقبلات": "7757", 
-    "فطيرة بغاشة": "2307888000008", "فطيرة سكر": "2307886000000",
-    "فطيرة نوتيلا": "2307892000001", "فطيرة كاستر": "2307887000009", "فطيرة لوتس": "2302451000003",
-    "فطيرة اوريو": "2302440000007",
-    "كريب كريسبي": "2307902000007", "كريب سجق": "2307897000006",
-    "كريب مشكل لحوم": "2307900000009", "كريب بسطرمة": "2307898000005", "كريب سي فود": "2307906000003",
-    "كريب شاورما فراخ": "2307903000006", "كريب جمبري": "2307904000005", "كريب نوتيلا": "2307907000002",
-    "كريب اوريو": "2300774000007", "كريب لوتس": "2305260000004", "مكرونة الفريدو": "2042220000154",
-    "مكرونة مفروم فرن": "2042220000185", "مكرونة نجرسكو": "2042220000147", "وجبة نص فرخة مشوية": "2307736000006",
-    "وجبة شيش طاووق": "2307735000007", "وجبة فلتو مشوي": "2307733000009", "وجبة كفتة مشوية": "2307734000008",
-    "مشكل: كفتة/شيش/فلتو": "2307737000005", "وجبة صدور مشوية": "2307740000009", "كفتة مشوية": "2307725000000",
-    "فرخة مشوية": "2307729000006", "نصف فرخة مشوية": "2307730000002", "فلتو مشوي": "2307715000003",
-    "شيش طاووق": "2307727000008", "صدور فراخ": "2307713000005", "شاورما فراخ عربي": "2044260000118",
-    "شاورما فراخ سوري (L)": "2307815000002", "شاورما فراخ سوري (M)": "2307814000003", "فتة شاورما فراخ (L)": "2307823000001",
-    "فتة شاورما فراخ (M)": "2307822000002", "عصير موز": "2307946000001", "عصير مواسم": "2308279000003",
-    "عصير مانجو": "2307948000009", "عصير فراولة": "2307949000008", "عصير ليمون": "2307953000001",
-    "عصير برتقال": "2307949000008", "عصير ليمون نعناع": "2307954000000", "بلو كراسو موهيتو": "2307974000004",
-    "كلاسيك موهيتو": "2307972000006", "بلو بيري موهيتو": "2307974000004", "باشون موهيتو": "2307975000003",
-    "خوخ موهيتو": "2307975000003", "فراولة موهيتو": "2307965000006", "مانجو سموزي": "2307964000007",
-    "فراولة سموزي": "2307965000006", "ليمون نعناع سموزي": "2307954000000", "بلو بيري سموزي": "2307968000003",
-    "خوخ سموزي": "2307970000008", "كيوي سموزي": "2044220000394", "ميكس بيري سموزي": "2044220000400",
-    "مانجو كيوي سموزي": "2044220000417", "مانجو خوخ سموزي": "2044220000424", "ميلك شيك فانيليا": "2307955000009",
-    "ميلك شيك مانجو": "2307957000007", "ميلك شيك فراولة": "2307958000006", "ميلك شيك نوتيلا": "2307959000005",
-    "ميلك شيك اوريو": "2307960000001", "ميلك شيك لوتس": "2302455000009", "شاي ساخن": "2307938000002",
-    "شاي فلفر": "2307939000001", "قهوة تركي": "2307941000006", "قهوة تركي دوبل": "2307942000005",
+    // خصم 10%
+    "بيتزا مارجريتا كبير خصم 10%": "2307827000007", "بيتزا مشكل جبن كبير خصم 10%": "2307833000008",
+    "بيتزا ببرونى كبير خصم 10%": "2307841000007", "بيتزا تشيكن رانش كبير خصم 10%": "2314645000003",
+    "بيتزا تشيكن باربكيو كبير خصم 10%": "2314646000002", "بيتزا لحوم مشكل كبير خصم 10%": "2307849000009",
+    "بيتزا سجق كبير خصم 10%": "2307837000004", "بيتزا بسطرمة كبير خصم 10%": "2307839000002",
+    "بيتزا جمبرى كبير خصم 10%": "2307851000004", "بيتزا مشكل سى فود كبير خصم 10%": "2307853000002",
+    "بيتزا شاورما فراخ كبير خصم 10%": "2307855000000",
+    "فطيرة خضروات كبير خصم 10%": "2307859000006", "فطيرة مشكل جبن كبير خصم 10%": "2307863000009",
+    "فطيرة سجق كبير خصم 10%": "2307865000007", "فطيرة بسطرمة كبير خصم 10%": "2307867000005",
+    "فطيرة دجاج كبير خصم 10%": "2307871000008", "فطيرة مشكل لحوم كبير خصم 10%": "2307869000003",
+    "فطيرة جمبرى كبير خصم 10%": "2307879000000", "فطيرة سى فوود كبير خصم 10%": "2307881000005",
+    "فطيرة شاورما فراخ كبير خصم 10%": "2307885000001",
+
+    // عروض الشاورما
+    "فتة شاورما فراخ وسط عرض 2+1": "2044250000081", "فتة شاورما فراخ كبير عرض 2+1": "2044250000098",
+    "سندوتش شاورما فراخ كبير عرض 2+1": "2044260000064", "سندوتش شاورما فراخ عربى عرض 2+1": "2044260000118",
+    "سندوتش شاورمة فراخ سورى وسط عرض 2+1": "2044260000057",
+
+    // المنيو العادي
+    "سلطة خضراء": "2307746000003", "سلطة بنجر": "2307743000006", "سلطة تونية": "2307750000006", 
+    "سلطة حمص": "2307745000004", "سلطة كول سلو": "2307749000000", "سلطة طحينة": "2307748000001",
+    "سلطة بابا غنوج": "2307742000007", "سلطة تومية": "2307744000005",
+    "سمبوسك جبن": "7751", "سمبوسك لحم": "7752", "باكيت بطاطس": "2307755000001",
+    "بطاطس جبنة": "2307756000000", "ارز بسمتي": "7761", "ممبار": "7758",
+    "كبيبة لحم": "7753", "ورق عنب أرز": "7759", "مشكل مقبلات": "7757",
+    "فطيرة بغاشة": "2307888000008", "فطيرة سكر": "2307886000000", "فطيرة نوتيلا": "2307892000001",
+    "فطيرة كاستر": "2307887000009", "فطيرة لوتس": "2302451000003", "فطيرة اوريو": "2302440000007",
+    "كريب كريسبي": "2307902000007", "كريب سجق": "2307897000006", "كريب مشكل لحوم": "2307900000009",
+    "كريب بسطرمة": "2307898000005", "كريب سي فود": "2307906000003", "كريب شاورما فراخ": "2307903000006",
+    "كريب جمبري": "2307904000005", "كريب نوتيلا": "2307907000002", "كريب اوريو": "2300774000007", "كريب لوتس": "2305260000004",
+    "مكرونة الفريدو": "2042220000154", "مكرونة مفروم فرن": "2042220000185", "مكرونة نجرسكو": "2042220000147",
+    "وجبة نص فرخة مشوية": "2307736000006", "وجبة شيش طاووق": "2307735000007", "وجبة فلتو مشوى": "2307733000009",
+    "وجبة كفتة مشوية": "2307734000008", "مشكل: كفتة/شيش/فلتو": "2307737000005", "وجبة صدور مشوية": "2307740000009",
+    "كفتة مشوية كيلو": "2307725000000", "فرخة مشوية": "2307729000006", "نص فرخة مشويه": "2307730000002",
+    "فلتو مشوى بالوزن": "2307715000003", "شيش طاووق كيلو": "2307727000008", "صدور مشويه بالوزن": "2307713000005",
+    "سندوتش شاورما فراخ عربى": "2044260000118", "سندوتش شاورمة فراخ سورى كبير": "2044260000064", "سندوتش شاورمة فراخ سورى وسط": "2044260000057",
+    "فتة شاورما فراخ كبير": "2044250000098", "فتة شاورما فراخ وسط": "2044250000081",
+    "عصيرموز": "2307946000001", "عصير مواسم": "2308279000003", "عصيرمانجو": "2307948000009",
+    "عصيرفراولة": "2307949000008", "عصيرليمون": "2307953000001", "ليمون نعناع": "2307954000000",
+    "بلو كراسو موهيتو": "2307974000004", "كلاسيك موهيتو": "2307972000006", "بلو بيرى موهيتو": "2307974000004",
+    "باشون موهيتو": "2307975000003", "بيتش موهيتو": "2307976000002", "ستروبيرى موهيتو": "2307973000005",
+    "مانجو سموزى": "2307964000007", "فراولة سموزى": "2307965000006", "بلو بيرى سموزى": "2307968000003",
+    "خوخ سموزى": "2307970000008", "كيوى سموزى": "2044220000394", "ميكس بيرى سموزى": "2044220000400",
+    "مانجو كيوى سموزى": "2044220000417", "مانجوخوخ سموزى": "2044220000424", "ميلك تشيك فانيليا": "2307955000009",
+    "ميلك تشيك مانجو": "2307957000007", "ميلك تشيك فراولة": "2307958000006", "ميلك تشيك نوتيلا": "2307959000005",
+    "ميلك تشيك اوريو": "2307960000001", "ميلك تشيك لوتس": "2302455000009", "شاى ساخن": "2307938000002",
+    "شاي فليفر": "2307939000001", "قهوة تركي": "2307941000006", "قهوة تركي دبل": "2307942000005",
     "اعشاب": "2307944000003", "قهوة حليب": "2308277000005", "قهوة نوتيلا/بندق": "2304665000004",
-    "هوت شوكليت": "2307932000008", "اسبريسو": "2307911000005", "اسبريسو دبل": "2307912000004",
-    "اسبريسو ميكاتو": "2307914000002", "اسبريسو دبل ميكاتو": "2307914000002", "كابوتشينو": "2308076000008",
+    "هوت شوكليت": "2307932000008", "اسبرسو": "2307911000005", "اسبرسو دبل": "2307912000004",
+    "اسبرسو ميكاتو": "2307914000002", "دبل ميكاتو": "2044220000370", "كابيتشينو": "2308076000008",
     "لاتيه": "2307918000008", "هوت سيدر": "2307921000002", "نسكافيه": "2301980000003",
     "امريكان كوفي": "2307923000000", "هوت موكا": "2307919000007", "ايس لاتيه": "2307986000009",
-    "ايس كابيتشينو": "2307984000001", "ايس امريكان كوفي": "2307987000008", "وافلز نوتيلا": "2304665000004",
-    "وافلز كراميل": "2041210000280", "وافلز مكسرات": "2301329000008", "وافلز اوريو": "2041210000280",
-    "وافلز لوتس": "2041210000082", "وافلز سادة": "2301329000008", "لوتس ايس كريم": "000000000000",
-    "كلاسيك ايس كريم": "2307972000006", "فروت ايس كريم": "2307725000000", "اكسترا فليفر": "2307990000002",
-    "اكسترا اسبريسو": "2307991000001", "اكسترا لبن": "2307992000000", "اكسترا نوتيلا": "2307993000009",
-    "اكسترا ايس كريم بولة": "2307991000001", "اكسترا صوص": "2307992000000", "اكسترا فواكه": "2307993000009"
+    "ايس كابيتشينو": "2307984000001", "ايس امريكان كوفي": "2307987000008", "وافلز سادة": "2301329000008",
+    "وافلز لوتس": "2041210000082", "وافلز أوريو": "2041210000280", "اكسترا فليفر": "2307990000002",
+    "اكسترا اسبرسو": "2307991000001", "اكسترا لبن": "2307992000000", "اكسترا نوتيلا": "2307993000009"
 };
 
 // ==========================================================
@@ -843,10 +790,13 @@ function showSection(sectionId) {
         event.target.classList.add('active');
     }
     
-    // الانتقال المباشر والناعم لقسم المشتريات
+    // انتقال ذكي لسلة المشتريات بدقة وسلاسة
     if(sectionId === 'cart') {
-        const yOffset = targetSection.getBoundingClientRect().top + window.scrollY - 20;
-        window.scrollTo({ top: yOffset, behavior: 'smooth' });
+        const cartSec = document.getElementById('cart');
+        if(cartSec) {
+            const yOffset = cartSec.getBoundingClientRect().top + window.scrollY - 20;
+            window.scrollTo({ top: yOffset, behavior: 'smooth' });
+        }
     } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -870,7 +820,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// --- قاموس الترجمة الشامل (عربي فقط للواجهة، وترجمة دقيقة للـ EN) ---
+// --- قاموس الترجمة الشامل والمضبوط بدقة ---
 const dictionary = {
     "عروض": "Offers", "سلاطات": "Salads", "مقبلات": "Appetizers", "بيتزا": "Pizza",
     "فطائر": "Pies", "كريب": "Crepes", "مكرونة": "Pasta", "وجبات": "Meals",
@@ -894,38 +844,37 @@ const dictionary = {
     "كومبو 1 كفته، 1 صدور": "Combo 1 Kofta, 1 Breast", "كومبو 1 كفته، 1 شيش": "Combo 1 Kofta, 1 Shish",
     "عرض وجبة كفته مشوية": "Grilled Kofta Meal Offer", "أرز + مقبلات + مخلل + سلطة + خبز": "Rice + Appetizers + Pickles + Salad + Bread",
     "عرض وجبة الصدور": "Chicken Breasts Meal Offer", "عرض وجبة شيش طاووق": "Shish Tawook Meal Offer",
+    "فرخة مشوية 285": "Grilled Chicken 285", "فرخة + نص": "Chicken + Half",
     
-    "بيتزا بسطرمة (عرض 1+1)": "Pastrami Pizza (1+1 Offer)", "بيتزا مارجريتا (عرض 1+1)": "Margherita Pizza (1+1 Offer)",
-    "بيتزا ببروني (عرض 1+1)": "Pepperoni Pizza (1+1 Offer)", "بيتزا مشكل جبن (عرض 1+1)": "Mixed Cheese Pizza (1+1 Offer)",
-    "بيتزا مشكل لحوم (عرض 1+1)": "Mixed Meat Pizza (1+1 Offer)", "بيتزا سجق (عرض 1+1)": "Sausage Pizza (1+1 Offer)",
-    "بيتزا جمبري (عرض 1+1)": "Shrimp Pizza (1+1 Offer)", "بيتزا شاورما فراخ (عرض 1+1)": "Chicken Shawarma Pizza (1+1 Offer)",
-    "بيتزا سي فود (عرض 1+1)": "Seafood Pizza (1+1 Offer)", "بيتزا دجاج رانش (عرض 1+1)": "Chicken Ranch Pizza (1+1 Offer)",
-    "بيتزا دجاج باربيكيو (عرض 1+1)": "Chicken BBQ Pizza (1+1 Offer)",
+    "بيتزا بسطرمة عرض 1+1": "Pastrami Pizza 1+1 Offer", "بيتزا مارجريتا عرض 1+1": "Margherita Pizza 1+1 Offer",
+    "بيتزا ببروني عرض 1+1": "Pepperoni Pizza 1+1 Offer", "بيتزا مشكل جبن عرض 1+1": "Mixed Cheese Pizza 1+1 Offer",
+    "بيتزا مشكل لحوم عرض 1+1": "Mixed Meat Pizza 1+1 Offer", "بيتزا سجق عرض 1+1": "Sausage Pizza 1+1 Offer",
+    "بيتزا جمبري عرض 1+1": "Shrimp Pizza 1+1 Offer", "بيتزا شاورما فراخ عرض 1+1": "Chicken Shawarma Pizza 1+1 Offer",
+    "بيتزا سي فود عرض 1+1": "Seafood Pizza 1+1 Offer", "بيتزا دجاج رانش عرض 1+1": "Chicken Ranch Pizza 1+1 Offer",
+    "بيتزا دجاج باربيكيو عرض 1+1": "Chicken BBQ Pizza 1+1 Offer",
     
-    "بيتزا (خصم 10%)": "Pizza (10% Off)",
-    "بيتزا مارجريتا كبير (خصم 10%)": "Large Margherita Pizza (10% Off)", "بيتزا مشكل جبن كبير (خصم 10%)": "Large Mixed Cheese Pizza (10% Off)",
-    "بيتزا سلامي كبير (خصم 10%)": "Large Salami Pizza (10% Off)", "بيتزا تشيكن رانش كبير (خصم 10%)": "Large Chicken Ranch Pizza (10% Off)",
-    "بيتزا تشيكن باربكيو كبير (خصم 10%)": "Large Chicken BBQ Pizza (10% Off)", "بيتزا مشكل لحوم كبير (خصم 10%)": "Large Mixed Meat Pizza (10% Off)",
-    "بيتزا سجق كبير (خصم 10%)": "Large Sausage Pizza (10% Off)", "بيتزا بسطرمة كبير (خصم 10%)": "Large Pastrami Pizza (10% Off)",
-    "بيتزا جمبري كبير (خصم 10%)": "Large Shrimp Pizza (10% Off)", "بيتزا مشكل سي فوود كبير (خصم 10%)": "Large Mixed Seafood Pizza (10% Off)",
-    "بيتزا شاورما فراخ كبير (خصم 10%)": "Large Chicken Shawarma Pizza (10% Off)",
+    "بيتزا مارجريتا كبير خصم 10%": "Large Margherita Pizza 10% Off", "بيتزا مشكل جبن كبير خصم 10%": "Large Mixed Cheese Pizza 10% Off",
+    "بيتزا ببرونى كبير خصم 10%": "Large Pepperoni Pizza 10% Off", "بيتزا تشيكن رانش كبير خصم 10%": "Large Chicken Ranch Pizza 10% Off",
+    "بيتزا تشيكن باربكيو كبير خصم 10%": "Large Chicken BBQ Pizza 10% Off", "بيتزا لحوم مشكل كبير خصم 10%": "Large Mixed Meat Pizza 10% Off",
+    "بيتزا سجق كبير خصم 10%": "Large Sausage Pizza 10% Off", "بيتزا بسطرمة كبير خصم 10%": "Large Pastrami Pizza 10% Off",
+    "بيتزا جمبرى كبير خصم 10%": "Large Shrimp Pizza 10% Off", "بيتزا مشكل سى فود كبير خصم 10%": "Large Mixed Seafood Pizza 10% Off",
+    "بيتزا شاورما فراخ كبير خصم 10%": "Large Chicken Shawarma Pizza 10% Off",
     
-    "فطيرة بسطرمة (عرض 1+1)": "Pastrami Pie (1+1 Offer)", "فطيرة خضروات (عرض 1+1)": "Vegetable Pie (1+1 Offer)",
-    "فطيرة دجاج (عرض 1+1)": "Chicken Pie (1+1 Offer)", "فطيرة مشكل جبن (عرض 1+1)": "Mixed Cheese Pie (1+1 Offer)",
-    "فطيرة مشكل لحوم (عرض 1+1)": "Mixed Meat Pie (1+1 Offer)", "فطيرة سجق (عرض 1+1)": "Sausage Pie (1+1 Offer)",
-    "فطيرة سي فود (عرض 1+1)": "Seafood Pie (1+1 Offer)", "فطيرة شاورما فراخ (عرض 1+1)": "Chicken Shawarma Pie (1+1 Offer)",
-    "فطيرة جمبري (عرض 1+1)": "Shrimp Pie (1+1 Offer)",
+    "فطيرة بسطرمة عرض 1+1": "Pastrami Pie 1+1 Offer", "فطيرة خضروات عرض 1+1": "Vegetable Pie 1+1 Offer",
+    "فطيرة دجاج عرض 1+1": "Chicken Pie 1+1 Offer", "فطيرة مشكل جبن عرض 1+1": "Mixed Cheese Pie 1+1 Offer",
+    "فطيرة مشكل لحوم عرض 1+1": "Mixed Meat Pie 1+1 Offer", "فطيرة سجق عرض 1+1": "Sausage Pie 1+1 Offer",
+    "فطيرة سي فود عرض 1+1": "Seafood Pie 1+1 Offer", "فطيرة شاورما فراخ عرض 1+1": "Chicken Shawarma Pie 1+1 Offer",
+    "فطيرة جمبري عرض 1+1": "Shrimp Pie 1+1 Offer",
     
-    "فطائر حلوة": "Sweet Pies", "فطائر حادق (خصم 10%)": "Savory Pies (10% Off)",
-    "فطيرة خضروات كبير (خصم 10%)": "Large Vegetable Pie (10% Off)", "فطيرة مشكل جبن كبير (خصم 10%)": "Large Mixed Cheese Pie (10% Off)",
-    "فطيرة سجق كبير (خصم 10%)": "Large Sausage Pie (10% Off)", "فطيرة بسطرمة كبير (خصم 10%)": "Large Pastrami Pie (10% Off)",
-    "فطيرة دجاج كبير (خصم 10%)": "Large Chicken Pie (10% Off)", "فطيرة مشكل لحوم كبير (خصم 10%)": "Large Mixed Meat Pie (10% Off)",
-    "فطيرة جمبري كبير (خصم 10%)": "Large Shrimp Pie (10% Off)", "فطيرة سي فوود كبير (خصم 10%)": "Large Seafood Pie (10% Off)",
-    "فطيرة شاورما فراخ كبير (خصم 10%)": "Large Chicken Shawarma Pie (10% Off)",
+    "فطيرة خضروات كبير خصم 10%": "Large Vegetable Pie 10% Off", "فطيرة مشكل جبن كبير خصم 10%": "Large Mixed Cheese Pie 10% Off",
+    "فطيرة سجق كبير خصم 10%": "Large Sausage Pie 10% Off", "فطيرة بسطرمة كبير خصم 10%": "Large Pastrami Pie 10% Off",
+    "فطيرة دجاج كبير خصم 10%": "Large Chicken Pie 10% Off", "فطيرة مشكل لحوم كبير خصم 10%": "Large Mixed Meat Pie 10% Off",
+    "فطيرة جمبرى كبير خصم 10%": "Large Shrimp Pie 10% Off", "فطيرة سى فوود كبير خصم 10%": "Large Seafood Pie 10% Off",
+    "فطيرة شاورما فراخ كبير خصم 10%": "Large Chicken Shawarma Pie 10% Off",
     
-    "فتة شاورما فراخ وسط (عرض 2+1)": "Chicken Shawarma Fatteh M (2+1 Offer)", "فتة شاورما فراخ لارج (عرض 2+1)": "Chicken Shawarma Fatteh L (2+1 Offer)",
-    "ساندوتش شاورما فراخ كبير (عرض 2+1)": "Large Chicken Shawarma Sandwich (2+1 Offer)", "ساندوتش شاورما فراخ عربي (عرض 2+1)": "Arabic Chicken Shawarma Sandwich (2+1 Offer)",
-    "ساندوتش شاورما فراخ وسط (عرض 2+1)": "Medium Chicken Shawarma Sandwich (2+1 Offer)",
+    "فتة شاورما فراخ وسط عرض 2+1": "Chicken Shawarma Fatteh M 2+1 Offer", "فتة شاورما فراخ كبير عرض 2+1": "Chicken Shawarma Fatteh L 2+1 Offer",
+    "سندوتش شاورما فراخ كبير عرض 2+1": "Large Chicken Shawarma Sandwich 2+1 Offer", "سندوتش شاورما فراخ عربى عرض 2+1": "Arabic Chicken Shawarma Sandwich 2+1 Offer",
+    "سندوتش شاورمة فراخ سورى وسط عرض 2+1": "Medium Syrian Chicken Shawarma 2+1 Offer",
     
     "سلطة خضراء": "Green Salad", "سلطة بنجر": "Beetroot Salad", "سلطة تونية": "Tuna Salad",
     "سلطة حمص": "Hummus Salad", "سلطة كول سلو": "Coleslaw Salad", "سلطة طحينة": "Tahini Salad",
@@ -946,41 +895,41 @@ const dictionary = {
     "مكرونة الفريدو": "Alfredo Pasta", "مكرونة مفروم فرن": "Oven Baked Minced Meat Pasta", "مكرونة نجرسكو": "Negresco Pasta",
     
     "وجبة نص فرخة مشوية": "Half Grilled Chicken Meal", "وجبة شيش طاووق": "Shish Tawook Meal",
-    "وجبة فلتو مشوي": "Grilled Fillet Meal", "وجبة كفتة مشوية": "Grilled Kofta Meal",
+    "وجبة فلتو مشوى": "Grilled Fillet Meal", "وجبة كفتة مشوية": "Grilled Kofta Meal",
     "مشكل: كفتة/شيش/فلتو": "Mixed Grill: Kofta/Shish/Fillet", "وجبة صدور مشوية": "Grilled Chicken Breasts Meal",
     
-    "كفتة مشوية": "Grilled Kofta", "فرخة مشوية": "Grilled Chicken", "نصف فرخة مشوية": "Half Grilled Chicken",
-    "فلتو مشوي": "Grilled Fillet", "شيش طاووق": "Shish Tawook", "صدور فراخ": "Chicken Breasts", "كيلو": "Kilo",
+    "كفتة مشوية كيلو": "Grilled Kofta Kilo", "فرخة مشوية": "Grilled Chicken", "نص فرخة مشويه": "Half Grilled Chicken",
+    "فلتو مشوى بالوزن": "Grilled Fillet by Weight", "شيش طاووق كيلو": "Shish Tawook Kilo", "صدور مشويه بالوزن": "Chicken Breasts by Weight", "كيلو": "Kilo",
     
-    "شاورما فراخ عربي": "Arabic Chicken Shawarma", "شاورما فراخ سوري (L)": "Syrian Chicken Shawarma (L)",
-    "شاورما فراخ سوري (M)": "Syrian Chicken Shawarma (M)", "فتة شاورما فراخ (L)": "Chicken Shawarma Fatteh (L)",
-    "فتة شاورما فراخ (M)": "Chicken Shawarma Fatteh (M)",
+    "سندوتش شاورما فراخ عربى": "Arabic Chicken Shawarma Sandwich", "سندوتش شاورمة فراخ سورى كبير": "Large Syrian Chicken Shawarma",
+    "سندوتش شاورمة فراخ سورى وسط": "Medium Syrian Chicken Shawarma", "فتة شاورما فراخ كبير": "Large Chicken Shawarma Fatteh",
+    "فتة شاورما فراخ وسط": "Medium Chicken Shawarma Fatteh",
     
-    "عصائر": "Juices", "عصير موز": "Banana Juice", "عصير مواسم": "Seasonal Juice", "عصير مانجو": "Mango Juice",
-    "عصير فراولة": "Strawberry Juice", "عصير ليمون": "Lemon Juice", "عصير برتقال": "Orange Juice", "عصير ليمون نعناع": "Lemon Mint Juice",
+    "عصائر": "Juices", "عصيرموز": "Banana Juice", "عصير مواسم": "Seasonal Juice", "عصيرمانجو": "Mango Juice",
+    "عصيرفراولة": "Strawberry Juice", "عصيرليمون": "Lemon Juice", "ليمون نعناع": "Lemon Mint Juice",
     
-    "موهيتو": "Mojito", "بلو كراسو موهيتو": "Blue Curacao Mojito", "كلاسيك موهيتو": "Classic Mojito", "بلو بيري موهيتو": "Blueberry Mojito",
-    "باشون موهيتو": "Passion Fruit Mojito", "خوخ موهيتو": "Peach Mojito", "فراولة موهيتو": "Strawberry Mojito",
+    "موهيتو": "Mojito", "بلو كراسو موهيتو": "Blue Curacao Mojito", "كلاسيك موهيتو": "Classic Mojito", "بلو بيرى موهيتو": "Blueberry Mojito",
+    "باشون موهيتو": "Passion Fruit Mojito", "بيتش موهيتو": "Peach Mojito", "ستروبيرى موهيتو": "Strawberry Mojito",
     
-    "سموزي": "Smoothie", "مانجو سموزي": "Mango Smoothie", "فراولة سموزي": "Strawberry Smoothie", "ليمون نعناع سموزي": "Lemon Mint Smoothie",
-    "بلو بيري سموزي": "Blueberry Smoothie", "خوخ سموزي": "Peach Smoothie", "كيوي سموزي": "Kiwi Smoothie",
-    "ميكس بيري سموزي": "Mixed Berry Smoothie", "مانجو كيوي سموزي": "Mango Kiwi Smoothie", "مانجو خوخ سموزي": "Mango Peach Smoothie",
+    "سموزي": "Smoothie", "مانجو سموزى": "Mango Smoothie", "فراولة سموزى": "Strawberry Smoothie",
+    "بلو بيرى سموزى": "Blueberry Smoothie", "خوخ سموزى": "Peach Smoothie", "كيوى سموزى": "Kiwi Smoothie",
+    "ميكس بيرى سموزى": "Mixed Berry Smoothie", "مانجو كيوى سموزى": "Mango Kiwi Smoothie", "مانجوخوخ سموزى": "Mango Peach Smoothie",
     
-    "ميلك شيك": "Milkshake", "ميلك شيك فانيليا": "Vanilla Milkshake", "ميلك شيك مانجو": "Mango Milkshake", "ميلك شيك فراولة": "Strawberry Milkshake",
-    "ميلك شيك نوتيلا": "Nutella Milkshake", "ميلك شيك اوريو": "Oreo Milkshake", "ميلك شيك لوتس": "Lotus Milkshake",
+    "ميلك شيك": "Milkshake", "ميلك تشيك فانيليا": "Vanilla Milkshake", "ميلك تشيك مانجو": "Mango Milkshake", "ميلك تشيك فراولة": "Strawberry Milkshake",
+    "ميلك تشيك نوتيلا": "Nutella Milkshake", "ميلك تشيك اوريو": "Oreo Milkshake", "ميلك تشيك لوتس": "Lotus Milkshake",
     
-    "شاي ساخن": "Hot Tea", "شاي فلفر": "Flavored Tea", "قهوة تركي": "Turkish Coffee", "قهوة تركي دوبل": "Double Turkish Coffee",
+    "شاى ساخن": "Hot Tea", "شاي فليفر": "Flavored Tea", "قهوة تركي": "Turkish Coffee", "قهوة تركي دبل": "Double Turkish Coffee",
     "اعشاب": "Herbs", "قهوة حليب": "Coffee with Milk", "قهوة نوتيلا/بندق": "Nutella/Hazelnut Coffee", "هوت شوكليت": "Hot Chocolate",
-    "اسبريسو": "Espresso", "اسبريسو دبل": "Double Espresso", "اسبريسو ميكاتو": "Espresso Macchiato", "اسبريسو دبل ميكاتو": "Double Espresso Macchiato",
-    "كابوتشينو": "Cappuccino", "لاتيه": "Latte", "هوت سيدر": "Hot Cider", "نسكافيه": "Nescafe",
+    "اسبرسو": "Espresso", "اسبرسو دبل": "Double Espresso", "اسبريسو ميكاتو": "Espresso Macchiato", "دبل ميكاتو": "Double Espresso Macchiato",
+    "كابيتشينو": "Cappuccino", "لاتيه": "Latte", "هوت سيدر": "Hot Cider", "نسكافيه": "Nescafe",
     "امريكان كوفي": "American Coffee", "هوت موكا": "Hot Mocha", "ايس لاتيه": "Iced Latte",
     "ايس كابيتشينو": "Iced Cappuccino", "ايس امريكان كوفي": "Iced American Coffee",
     
-    "وافلز": "Waffles", "وافلز نوتيلا": "Nutella Waffles", "وافلز كراميل": "Caramel Waffles", "وافلز مكسرات": "Nuts Waffles",
-    "وافلز اوريو": "Oreo Waffles", "وافلز لوتس": "Lotus Waffles", "وافلز سادة": "Plain Waffles",
+    "وافلز": "Waffles", "وافلز نوتيلا": "Nutella Waffles", "وافلز سادة": "Plain Waffles",
+    "وافلز أوريو": "Oreo Waffles", "وافلز لوتس": "Lotus Waffles",
     
-    "ايس كريم": "Ice Cream", "لوتس ايس كريم": "Lotus Ice Cream", "كلاسيك ايس كريم": "Classic Ice Cream", "فروت ايس كريم": "Fruit Ice Cream",
-    "اكسترا فليفر": "Extra Flavor", "اكسترا اسبريسو": "Extra Espresso", "اكسترا لبن": "Extra Milk", "اكسترا نوتيلا": "Extra Nutella",
+    "ايس كريم": "Ice Cream", 
+    "اكسترا فليفر": "Extra Flavor", "اكسترا اسبرسو": "Extra Espresso", "اكسترا لبن": "Extra Milk", "اكسترا نوتيلا": "Extra Nutella",
     "اكسترا ايس كريم بولة": "Extra Ice Cream Scoop", "اكسترا صوص": "Extra Sauce", "اكسترا فواكه": "Extra Fruits",
     
     "فتح الله FATHALLA": "Fathalla", "جودة منذ 1948": "Quality since 1948", "للطلب والاستفسار": "For orders and inquiries",
@@ -998,10 +947,10 @@ function toggleLanguage() {
         if (node.nodeType === 3) {
             let text = node.nodeValue.trim();
             if (text) {
-                // فلتر لإزالة الإيموجيات حتى تتم الترجمة بدقة
+                // فلتر لإزالة الإيموجيات حتى تتم الترجمة بدقة تامة
                 let cleanText = text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '').trim();
                 
-                // تخطي ترجمة KITCHEN MENU للحفاظ على الهوية البصرية
+                // تجاهل ترجمة الحروف الخاصة باللوجو 
                 if (cleanText === "K" || cleanText === "ITCHEN MENU") return;
 
                 if (isEnglish && dictionary[cleanText]) {
@@ -1037,9 +986,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// الخريطة السحرية لفك عروض 1+1 إلى صنفين مختلفين لكل منهما باركود خاص
+const doubleOfferMap = {
+    "بيتزا بسطرمة عرض 1+1": ["بيتزا بسطرمة كبير", "بيتزا بسطرمة وسط"],
+    "بيتزا مارجريتا عرض 1+1": ["بيتزا مارجريتا كبير", "بيتزا مارجريتا وسط"],
+    "بيتزا ببروني عرض 1+1": ["بيتزا ببرونى كبير", "بيتزا ببرونى وسط"],
+    "بيتزا مشكل جبن عرض 1+1": ["بيتزا مشكل جبن كبير", "بيتزا مشكل جبن وسط"],
+    "بيتزا مشكل لحوم عرض 1+1": ["بيتزا لحوم مشكل كبير", "بيتزا لحوم مشكل وسط"],
+    "بيتزا سجق عرض 1+1": ["بيتزا سجق كبير", "بيتزا سجق وسط"],
+    "بيتزا جمبري عرض 1+1": ["بيتزا جمبرى كبير", "بيتزا جمبرى وسط"],
+    "بيتزا شاورما فراخ عرض 1+1": ["بيتزا شاورما فراخ كبير", "بيتزا شاورما فراخ وسط"],
+    "بيتزا سي فود عرض 1+1": ["بيتزا مشكل سى فوود كبير", "بيتزا مشكل سى فوود وسط"],
+    "بيتزا دجاج رانش عرض 1+1": ["بيتزا تيشكن رانش لارج", "بيتزا تيشكن رانش وسط"],
+    "بيتزا دجاج باربيكيو عرض 1+1": ["بيتزا تيشكن باربيكيو لارج", "بيتزا تيشكن باربيكيو وسط"],
+    "فطيرة بسطرمة عرض 1+1": ["فطيرة بسطرمة كبير", "فطيرة بسطرمة وسط"],
+    "فطيرة خضروات عرض 1+1": ["فطيرة خضروات كبير", "فطيرة خضروات وسط"],
+    "فطيرة دجاج عرض 1+1": ["فطيرة دجاج كبير", "فطيرة دجاج وسط"],
+    "فطيرة مشكل جبن عرض 1+1": ["فطيرة مشكل جبن كبير", "فطيرة مشكل جبن وسط"],
+    "فطيرة مشكل لحوم عرض 1+1": ["فطيرة مشكل لحوم كبير", "فطيرة مشكل لحوم وسط"],
+    "فطيرة سجق عرض 1+1": ["فطيرة سجق كبير", "فطيرة سجق وسط"],
+    "فطيرة سي فود عرض 1+1": ["فطيرة سى فوود كبير", "فطيرة سى فوود وسط"],
+    "فطيرة شاورما فراخ عرض 1+1": ["فطيرة شاورما فراخ كبير", "فطيرة شاورما فراخ وسط"],
+    "فطيرة جمبري عرض 1+1": ["فطيرة جمبرى كبير", "فطيرة جمبرى وسط"]
+};
+
 function addToCart(displayedName, price) {
     let arabicName = isEnglish ? (revDictionary[displayedName] || displayedName) : displayedName;
-    cart.push({ name: arabicName, price });
+    
+    // التحقق إذا كان الصنف عرض 1+1 ليتم إدراج الحجمين بباركودين منفصلين
+    if (doubleOfferMap[arabicName]) {
+        cart.push({ name: doubleOfferMap[arabicName][0], price: price }); // الكبير بسعره
+        cart.push({ name: doubleOfferMap[arabicName][1], price: 0 }); // الوسط مجاناً
+    } else {
+        cart.push({ name: arabicName, price: price });
+    }
+    
     updateCartUI();
     
     const toast = document.getElementById('toast');
@@ -1065,6 +1046,7 @@ function updateCartUI() {
         
         let displayedName = isEnglish ? (dictionary[item.name] || item.name) : item.name;
         let currency = isEnglish ? "EGP" : "جنيه";
+        let priceTxt = item.price === 0 ? (isEnglish ? "FREE" : "مجاناً") : `${item.price} <span class="currency">${currency}</span>`;
         
         container.innerHTML += `
             <div class="item-card" style="cursor:default; border-left: 4px solid var(--primary);">
@@ -1072,12 +1054,11 @@ function updateCartUI() {
                     <div class="item-name" style="margin:0;">${displayedName}</div>
                     <button onclick="removeFromCart(${index})" style="background:#dc3545; color:white; border:none; border-radius:5px; padding:5px 10px; cursor:pointer;">X</button>
                 </div>
-                <div class="item-price" style="font-size:1.2rem; margin-top:5px;">${item.price} <span class="currency">${currency}</span></div>
+                <div class="item-price" style="font-size:1.2rem; margin-top:5px;">${priceTxt}</div>
                 
-                <!-- سنترة الباركود بشكل دقيق -->
-                <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 15px; width: 100%; direction: ltr;">
-                    <div class="barcode-font">*${bCode}*</div>
-                    <div style="font-size:13px; letter-spacing:3px; color:#888; font-family:Arial,sans-serif; text-align: center; margin-top:5px;">${bCode}</div>
+                <div style="background-color: #ffffff !important; color: #000000 !important; border-radius: 8px; padding: 15px 5px; margin-top: 15px; border: 1px solid #ccc; text-align: center; direction: ltr;">
+                    <div class="barcode-font" style="font-family: 'Libre Barcode 39', cursive; font-size: 45px; line-height: 1;">*${bCode}*</div>
+                    <div style="font-size:14px; letter-spacing:3px; font-family:monospace; font-weight:bold; margin-top:5px;">${bCode}</div>
                 </div>
             </div>`;
     });
