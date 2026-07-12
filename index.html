@@ -227,8 +227,98 @@ body.dark-mode .item-desc { color: #999 !important; }
         <button id="lang-toggle" onclick="toggleLanguage()" style="background: rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); height: 40px; padding: 0 12px; border-radius: 20px; font-size: 13px; font-weight: bold; color: #fff; cursor: pointer; display: flex; justify-content: center; align-items: center;">🌐 EN</button>
     </div>
 
-    <img src="logo.png" alt="العلامة التجارية" style="max-width: 100%; max-height: 100px; object-fit: contain; display: block; margin: 0 auto; margin-top: 15px;">
-    
+<style>
+        .logo-3d-scene {
+            position: relative;
+            width: 120px; /* عرض اللوجو */
+            height: 120px; /* طول اللوجو */
+            margin: 0 auto;
+            margin-top: 15px;
+            perspective: 1200px; /* لعمل التأثير ثلاثي الأبعاد (العمق) */
+            cursor: pointer;
+            z-index: 10;
+        }
+        
+        /* شخصية الشيف المخفية بالخلف */
+        .chef-behind {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; justify-content: center; align-items: center;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 80%);
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.5);
+        }
+        
+        /* أيقونة الشيف الذهبية */
+        .chef-behind svg {
+            width: 75px; height: 75px;
+            fill: var(--gold);
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.6));
+            animation: smileBob 2s infinite ease-in-out;
+        }
+        
+        /* حركة تنفس خفيفة للشيف */
+        @keyframes smileBob {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-3px) scale(1.05); }
+        }
+        
+        /* باب اللوجو */
+        .logo-door {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 2;
+            transform-origin: right center; /* مفصلة الباب على اليمين لتناسب اللغة العربية */
+            transition: transform 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* حركة فتح الباب السلسة والمرنة */
+            transform-style: preserve-3d;
+            background: linear-gradient(135deg, #1A1A1A, #2A2A2A); /* خلفية اللوجو */
+            border-radius: 20px;
+            display: flex; justify-content: center; align-items: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+            border: 2px solid rgba(212, 175, 55, 0.4);
+        }
+        
+        .logo-door img {
+            max-width: 90%; max-height: 90%; object-fit: contain;
+        }
+
+        /* حركة الفتح التلقائية كل فترة لجذب الانتباه */
+        @keyframes autoOpenDoor {
+            0%, 25%, 100% { transform: rotateY(0deg); }
+            45%, 80% { transform: rotateY(-110deg); } /* زاوية فتح الباب للخلف */
+        }
+        
+        .logo-door.auto-animate {
+            animation: autoOpenDoor 12s infinite;
+        }
+        
+        /* عند لمس اللوجو يفتح الباب فوراً ويظل مفتوحاً */
+        .logo-3d-scene:hover .logo-door,
+        .logo-3d-scene:active .logo-door {
+            animation-play-state: paused; /* يوقف الحركة التلقائية لتستمتع بالنظر */
+            transform: rotateY(-115deg) !important; /* يفتح الباب */
+        }
+    </style>
+
+    <div class="logo-3d-scene">
+        <div class="chef-behind">
+            <svg viewBox="0 0 512 512">
+                <path d="M352,128c0-52.9-43.1-96-96-96s-96,43.1-96,96c0,21.5,7.1,41.4,19.1,57.5C146.4,196.4,120,227.6,120,264
+                c0,35.4,23.3,65.2,55.8,76.5V368c0,26.5,21.5,48,48,48h64c26.5,0,48-21.5,48-48v-27.5c32.5-11.3,55.8-41.1,55.8-76.5
+                c0-36.4-26.4-67.6-59.1-78.5C344.9,169.4,352,149.5,352,128z M256,64c35.3,0,64,28.7,64,64s-28.7,64-64,64s-64-28.7-64-64
+                S220.7,64,256,64z M288,400h-64c-17.6,0-32-14.4-32-32v-16h128v16C320,385.6,305.6,400,288,400z M360,264c0,26.5-21.5,48-48,48H200
+                c-26.5,0-48-21.5-48-48c0-26.5,21.5-48,48-48h112C338.5,216,360,237.5,360,264z"/>
+            </svg>
+        </div>
+        
+        <div class="logo-door auto-animate">
+            <img src="logo.png" alt="العلامة التجارية">
+        </div>
+    </div>
+    ```
+
+جرب لمس اللوجو أو الوقوف عليه بالماوس، وسترى باب اللوجو يفتح بتأثير سينمائي رائع ليظهر لك الشيف من الخلف👨‍🍳🔥    
     <style>
         @keyframes hatFloat {
             0%, 100% { transform: translateX(-50%) rotate(-10deg); filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)); }
