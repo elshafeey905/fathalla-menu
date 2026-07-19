@@ -126,6 +126,18 @@ body {
 .item-price { font-size: 1.3rem; font-weight: 900; color: var(--primary); margin-top: auto; }
 .item-price .currency { font-size: 0.85rem; color: #888; font-weight: 600; }
 
+.item-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    align-self: flex-start;
+}
+.badge-hot { background: linear-gradient(135deg, #ffebee, #ffcdd2); color: #c62828; }
+
 .drinks-subsection { margin-bottom: 30px; }
 .drinks-subsection h3 { color: var(--dark); font-size: 1.4rem; margin-bottom: 15px; padding-right: 15px; border-right: 4px solid var(--gold); font-weight: 800; }
 
@@ -227,21 +239,7 @@ body.dark-mode .item-desc { color: #999 !important; }
         <button id="lang-toggle" onclick="toggleLanguage()" style="background: rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); height: 40px; padding: 0 12px; border-radius: 20px; font-size: 13px; font-weight: bold; color: #fff; cursor: pointer; display: flex; justify-content: center; align-items: center;">🌐 EN</button>
     </div>
 
-<style>
-        @keyframes simpleLogoPulse {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.1)); }
-            50% { transform: scale(1.06); filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5)); }
-        }
-        .pulsing-logo {
-            max-width: 100%; max-height: 100px; object-fit: contain; display: block; margin: 0 auto; margin-top: 25px;
-            animation: simpleLogoPulse 3s infinite ease-in-out; cursor: pointer; transition: 0.3s;
-        }
-        .pulsing-logo:hover {
-            transform: scale(1.1) !important;
-            animation-play-state: paused;
-            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
-        }
- <!-- كود اللوجو النابض مع شعار KITCHEN MENU -->
+    <!-- كود اللوجو النابض مع شعار KITCHEN MENU -->
     <style>
         @keyframes simpleLogoPulse {
             0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.1)); }
@@ -323,21 +321,32 @@ body.dark-mode .item-desc { color: #999 !important; }
         <div class="offers-banners-container">
             <div class="offer-banner pizza-offer-banner" onclick="showSection('pizza-offers')">
                 🍕 عرض البيتزا 1+1 🍕<br><span style="font-size: 14px;">كبير + وسط مجاناً</span>
-                <div class="offer-subtitle">👈 اضغط هنا لاختيار البيتزا 👉</div>
+                <div class="offer-subtitle">👈 <span>اضغط هنا لاختيار البيتزا</span> 👉</div>
             </div>
             
             <div class="offer-banner pie-offer-banner" onclick="showSection('pie-offers')">
                 🥧 عرض الفطير 1+1 🥧<br><span style="font-size: 14px;">كبير + وسط مجاناً</span>
-                <div class="offer-subtitle">👈 اضغط هنا لاختيار الفطائر 👉</div>
+                <div class="offer-subtitle">👈 <span>اضغط هنا لاختيار الفطائر</span> 👉</div>
             </div>
 
             <div class="offer-banner shawerma-offer-banner" onclick="showSection('shawerma-offers')">
                 🌯 عرض الشاورما 2+1 🌯<br><span style="font-size: 14px;">اشتري 2 واحصل على 1 مجاناً</span>
-                <div class="offer-subtitle">👈 اضغط هنا لاختيار الشاورما 👉</div>
+                <div class="offer-subtitle">👈 <span>اضغط هنا لاختيار الشاورما</span> 👉</div>
             </div>
         </div>       
         
         <div class="items-grid">
+            <div class="item-card">
+                <div class="item-name">بوكس التوفير</div>
+                <div class="item-desc" style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">1 فرخة + 1 مجاناً + مخلل + سلطة + عيش</div>
+                <div class="item-price">425 <span class="currency">جنيه</span></div>
+                <span class="item-badge badge-hot">🔥 الأكثر طلباً</span>
+            </div>
+            <div class="item-card">
+                <div class="item-name">عرض نصف فرخة مشوية</div>
+                <div class="item-desc" style="border-bottom: 1px solid #ddd; padding-bottom: 5px;">أرز + 2 سلطة + خبز</div>
+                <div class="item-price">155 <span class="currency">جنيه</span></div>
+            </div>
             <div class="item-card"><div class="item-name">فرخة مشوية 285</div><div class="item-price">285 <span class="currency">جنيه</span></div></div>
             <div class="item-card"><div class="item-name">فرخة + نص</div><div class="item-price">400 <span class="currency">جنيه</span></div></div>
             <div class="item-card"><div class="item-name">كومبو 2 كفته مشوية</div><div class="item-desc">كلوسلو + فرايز</div><div class="item-price">130 <span class="currency">جنيه</span></div></div>
@@ -646,7 +655,7 @@ body.dark-mode .item-desc { color: #999 !important; }
       <div class="item-card"><div class="item-name">هوت شوكليت</div><div class="item-price">55 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">اسبرسو</div><div class="item-price">30 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">اسبرسو دبل</div><div class="item-price">35 <span class="currency">جنيه</span></div></div>
-      <div class="item-card"><div class="item-name">اسبرسو ميكاتو</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
+      <div class="item-card"><div class="item-name">اسبريسو ميكاتو</div><div class="item-price">45 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">دبل ميكاتو</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">كابيتشينو</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
       <div class="item-card"><div class="item-name">لاتيه</div><div class="item-price">60 <span class="currency">جنيه</span></div></div>
@@ -686,7 +695,7 @@ body.dark-mode .item-desc { color: #999 !important; }
   </div>
 
   <div class="footer">
-    <h3 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 5px;">أسواق فتح الله </h3>
+    <h3 style="font-size: 2.2rem; font-weight: 900; margin-bottom: 5px;">أسواق فتح الله</h3>
     <p style="color: var(--gold); font-weight: bold; letter-spacing: 2px;">أفضل سعر لأفضل جودة</p>
     
     <div style="margin-top: 25px;">
@@ -720,6 +729,8 @@ body.dark-mode .item-desc { color: #999 !important; }
 // ==========================================================
 const barcodeDB = {
     // العروض والوجبات
+    "بوكس التوفير": "2041210001027",
+    "عرض نصف فرخة مشوية": "2042320000344",
     "كومبو 2 كفته مشوية": "2041810000420", "كومبو 1 كفته، 1 صدور": "2041820000373", "كومبو 1 كفته، 1 شيش": "2041820000366",
     "عرض وجبة كفته مشوية": "204120000122", "عرض وجبة الصدور": "2041210001003", "عرض وجبة شيش طاووق": "2041210000990",
     "فرخة مشوية 285": "2042320000276", "فرخة + نص": "2313771000000",
@@ -800,9 +811,10 @@ const barcodeDB = {
     "اسبريسو ميكاتو": "2307914000002", "دبل ميكاتو": "2044220000370", "كابيتشينو": "2308076000008",
     "لاتيه": "2307918000008", "هوت سيدر": "2307921000002", "نسكافيه": "2301980000003",
     "امريكان كوفي": "2307923000000", "هوت موكا": "2307919000007", "ايس لاتيه": "2307986000009",
-    "ايس كابيتشينو": "2307984000001", "ايس امريكان كوفي": "2307987000008", "وافلز سادة": "2301329000008",
-    "وافلز لوتس": "2041210000082", "وافلز أوريو": "2041210000280", "اكسترا فليفر": "2307990000002",
-    "اكسترا اسبرسو": "2307991000001", "اكسترا لبن": "2307992000000", "اكسترا نوتيلا": "2307993000009"
+    "ايس كابيتشينو": "2307984000001", "ايس امريكان كوفي": "2307987000008", "وافلز نوتيلا": "2304665000004",
+    "وافلز سادة": "2301329000008", "وافلز أوريو": "2041210000280", "وافلز لوتس": "2041210000082",
+    "اكسترا فليفر": "2307990000002", "اكسترا اسبرسو": "2307991000001", "اكسترا لبن": "2307992000000",
+    "اكسترا نوتيلا": "2307993000009"
 };
 
 // ==========================================================
@@ -868,12 +880,17 @@ const dictionary = {
     
     "عروض البيتزا 1+1": "Pizza Offers 1+1", "عروض الفطير 1+1": "Pie Offers 1+1", "عروض الشاورما 2+1": "Shawarma Offers 2+1",
     "عرض البيتزا 1+1": "Pizza Offer 1+1", "عرض الفطير 1+1": "Pie Offer 1+1", "عرض الشاورما 2+1": "Shawarma Offer 2+1",
-  "اضغط هنا لاختيار البيتزا": "Click to select Pizza",
+    "اضغط هنا لاختيار البيتزا": "Click to select Pizza",
     "اضغط هنا لاختيار الفطائر": "Click to select Pies",
     "اضغط هنا لاختيار الشاورما": "Click to select Shawarma",
     
     "كبير + وسط مجاناً": "Large + Medium Free",
     "اشتري 2 واحصل على 1 مجاناً": "Buy 2 Get 1 Free",
+    
+    "بوكس التوفير": "Savings Box",
+    "1 فرخة + 1 مجاناً + مخلل + سلطة + عيش": "1 Chicken + 1 Free + Pickles + Salad + Bread",
+    "عرض نصف فرخة مشوية": "Half Grilled Chicken Offer",
+    "أرز + 2 سلطة + خبز": "Rice + 2 Salads + Bread",
     
     "كومبو 2 كفته مشوية": "Combo 2 Grilled Kofta", "كلوسلو + فرايز": "Coleslaw + Fries",
     "كومبو 1 كفته، 1 صدور": "Combo 1 Kofta, 1 Breast", "كومبو 1 كفته، 1 شيش": "Combo 1 Kofta, 1 Shish",
